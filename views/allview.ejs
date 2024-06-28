@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('./partials/header.ejs') %>
+<%- include('./partials/menu.ejs') %>
+<body>
+  <% num = 0 %>
+  <div class="fullpage">
+    <%- include("./partials/mainhead.ejs") %>
+    <div class="content">
+      <ol id="mainl">
+        
+        <% if (webpage > 0) { %>
+            <% if (blogs.length > 0) { %> 
+        <%for (let i = blogs.length-1; i >= 0; i--) { blog = blogs[i] %>
+          <% if (blog.categ == webpage) {
+            num = num + 1;
+            if (startlimit <= num < endlimit) { 
+              %>
+        <li id="eachvid">
+          <a class="singlevid" href="/blogs/<%= blog._id %>">
+            <div class="container">
+              <img src="<%= blog.thumb %>" alt="Avatar" class="sThumbnail">
+              <div class="overlay">
+                <div class="text"><%= blog.name %></div>
+              </div>
+            </div>
+          </a>
+        </li>
+        <% }}}} %>
+        <% } else { %>
+          <% if (blogs.length > 0) { %> 
+      <%for (let i = blogs.length-1; i >= 0; i--) { blog = blogs[i]
+          num = num + 1;
+          if (num < endlimit &&  num >= startlimit ) { 
+            %>
+      <li id="eachvid">
+        <a class="singlevid" href="/blogs/<%= blog._id %>">
+          <div class="container">
+            <img src="<%= blog.thumb %>" alt="Avatar" class="sThumbnail">
+            <div class="overlay">
+              <div class="text"><%= blog.name %></div>
+            </div>  
+          </div>
+        </a>
+      </li>
+      <% }}}}%>
+      </ol>
+    </div>
+  </div>
+  
+  <ul class="prevnext">
+    <li id="prev">
+      <button class="goback" onclick="changeval(1)"><h1>&lt;</h1></button>
+    
+    </li>
+    <li id="next">
+      <button id="offon" onclick="changeval(0)"><h1>></h1></button>
+    </li>
+  </ul>
+
+  <%- include("./partials/foot.ejs") %>
+
+  <script>
+    var startlimit = <%= startlimit %>;
+    var endlimit = <%= endlimit %>;
+
+    function changeval(prevnext) {
+      if (prevnext == 1) {
+        startlimit = Math.max(0, startlimit - 6);
+        endlimit = Math.max(7, endlimit - 6);
+      } else {
+        startlimit = startlimit + 6;
+        if (<%-blogs.length%> > (endlimit+6) ) {
+        endlimit = endlimit + 6;
+      } else {
+        endlimit = <%=blogs.length%>;
+      }
+      }
+      window.location.href = `/blogs/all_videos?startlimit=${startlimit}&endlimit=${endlimit}#eachvid`;
+    }
+  </script>
+
+</body>
+</html>

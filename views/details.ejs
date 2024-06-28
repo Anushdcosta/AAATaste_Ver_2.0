@@ -1,0 +1,138 @@
+<html lang="en">
+<%- include("./partials/header.ejs") %>
+<%- include('./partials/menu.ejs') %>
+<body>
+  <div class="fullpage">
+  <%
+  function generateUniqueRandoms(min, max, count) {
+    let nums = new Set();
+    while(nums.size < count) {
+        let num = Math.floor(Math.random() * (max - min + 1)) + min;
+        if(num !== blog.roll) {
+            nums.add(num);
+        }
+    }
+    return Array.from(nums);
+}
+%>
+  <%- include("./partials/mainhead.ejs") %>
+  <div>
+    <h1 id="title"><%- blog.name %></h1>
+    <% console.log(blogs.length); %>
+  </div>
+  <ul class="side">
+    <li>
+      <img src="<%= blog.thumb %>" alt="" id="mainpicture" />
+    </li>
+    <li id="uptodate">
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9481773492516595"
+     crossorigin="anonymous"></script>
+<!-- square responsive -->
+<ins class="adsbygoogle"
+     style="display:block; margin-top:0.3cm"
+     data-ad-client="ca-pub-9481773492516595"
+     data-ad-slot="1115542366"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<div class="allupto">
+      <h2>Stay Up To Date</h2>
+      <div>
+        <ul>
+          <li>
+            <a id="you" target="_blank" href="https://www.youtube.com/@MeRecipesAAAtaste?sub_confirmation=1"><i class="fa-brands fa-youtube fa-l"></i></a>
+          </li>
+          <li>
+            <a id="inst" target="_blank" href="https://www.instagram.com/merecipesaaataste/"><i class="fa-brands fa-instagram fa-xl"></i></a>
+          </li>
+          <li>
+            <a id="face" target="_blank" href="https://www.facebook.com/profile.php?id=61558612051343"><i class="fa-brands fa-facebook fa-2xl" style="color: #1079da;"></i></a>
+          </li>
+          <li>
+            <a id="twitt" target="_blank" href="https://twitter.com/Veena06520347"><i class="fa-brands fa-x-twitter"></i></a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    </li>
+  </ul>
+  <div class="subsections">
+    <div class="mainbody">
+      <h2 id="subtitle">Ingredients</h2>
+      <div class="recipe">
+        <% let newarr = blog.Ingredients.split("\n")
+    for (let i = 0; i < newarr.length; i++) {
+      if (newarr[i] != "") {%>
+        <input type="checkbox" id="ing">
+        <label for="ing"><%= newarr[i]%> <br></label>
+        <% }} %>
+      </div>
+      <h2 id="subtitle" class="lobster-regular">Method</h2>
+      <div class="recipe">
+        <% let recipearr = blog.recipe.split("\n")
+    for (let i = 0; i < recipearr.length; i++) {
+      if (recipearr[i] != "") {%>
+        <li><label id="recipe"><%= recipearr[i]%> <br></label></li>
+        <% }} %>
+        <h1 id="subtitle"><br>Video</h1>
+        <%
+        embed_link = "https://www.youtube.com/embed/" + blog.link.split("=")[1]
+        console.log(embed_link);
+        %>
+        <iframe src="<%= embed_link%>" id="yout_video" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        <div id="comment">
+          <h2>Comments</h2>
+          <form action="/blogs/<%= blog._id %>" method="post">
+            <input type="email" placeholder="Email id" name="email" id="email" required>
+            <textarea type="" name="comments" id="comments" required></textarea>
+            <button id="commentsubmit">Submit</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <% let random = generateUniqueRandoms(0, blogs.length-1, 4);%>
+    <div class="subbody">
+      <h1 id="aboutsub">&star; About Me &star;</h1>
+      <img src="/veena.jpeg" alt="" width="200" height="200" id="hp" />
+      <p id="aboutsubpara">
+        Hi, my name is Veena D Costa, I share Simple, Authentic & traditional
+        Mangalorean Recipes and also several other cuisines, Indian &
+        International recipes. So here I am, trying my best to cook a variety of
+        meals for my family /children which I would like to share with you.
+        Regularly I try to bring to you a variety of recipes, Snacks, Vegetarian,
+        Non-Vegetarian, and many other Easy to Cook, Homemade, and tasty recipes
+        with step-by-step detailed easy methods/instructions on how to cook family
+        meals.
+      </p>
+      <div id="other">
+      <h1 id="aboutsub">&star; Other Recipes &star;</h1>
+      <% for (let i=0; i < random.length; i++) {
+          let indice = random[i]
+          sampleblog = blogs[String(indice)]
+          %>
+      <li>
+        <div class="subbodyblogs">
+          <a class="singlesubbody" href="/blogs/<%= sampleblog._id %>">
+            <ul class="innersubelem">
+              <div class="specelem">
+                <li>
+                  <h3 class="title"><%= sampleblog.name%></h3>
+                </li>
+                <li><img class="Thumbnail" src="<%= sampleblog.thumb %>" alt="hello" /></li>
+              </div>
+            </ul>
+          </a>
+          <% }%>
+        </div>
+      </div>
+      </li>
+    </div>
+  </div>
+</div>
+  <%- include("./partials/foot.ejs") %>
+
+</body>
+
+</html>

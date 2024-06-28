@@ -1,0 +1,223 @@
+@media only screen and ((min-width: 115px) and (max-width: 1200px)){
+    body {
+      max-width: 100%;
+      margin: 5%;
+      margin-top: 0;
+      margin-left: 0.5%;
+      padding: 0;
+      width: 100%;
+      overflow: auto; /* or hidden, scroll, etc. */
+      overflow-x: hidden;
+    }
+    body::-webkit-scrollbar {
+      display: none;
+    }
+    body::-webkit-scrollbar-thumb {
+      background-color: #ff00d0;
+      border-radius: 50px;
+    }
+    .Thumbnail {
+      width: 100%;
+      height: 100%;
+    }
+    /* Continue to adjust other elements as needed */
+    #image {
+      width: 15%;
+      height: 15%;
+    }
+  
+    .mainnav {
+      display: flex;
+      justify-content: space-between;
+      margin: 0;
+      padding: 0;
+      margin-bottom: 30px;
+      padding-bottom: 5px;
+      border-bottom: 2px solid #c4c2c2;
+      text-transform: uppercase;
+      margin-top: 15px;
+  
+    }
+    .datanav { 
+      margin-left: 0.15cm;
+      
+    }
+    .datanav li{ 
+      margin-left: 0%;
+      padding-left: 2%;
+      padding-right: 2%;
+      font-weight: 900;
+      font-size: 2.5vw;
+      
+      white-space: nowrap;
+    }
+    .innerelem {
+      display:block;
+      list-style: none;
+      border-radius: 10px;
+      padding: 0%;
+      border: 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+    #channel_name {
+      font-size: 1cm;
+      text-align: center;
+      margin-bottom: 0.3cm;
+    }
+    #navi {
+      display: none;
+    }
+    .headerfile img {
+      border: 0;
+      width: 98%;
+    }
+    .aboutnav ul {
+      display: flex;
+    }
+    #aboutme {
+      display: none;
+    }
+  
+    .subcont {
+      height: 70%;
+      position: relative;
+      width: 95%;
+      padding: 0;
+      margin: auto;
+      border: 0.1em solid black;
+      text-align: center;
+    }
+    
+    #partinfo{
+      display: none;
+    }
+    .sThumbnail {
+      width: 13.5em;
+      height: 7.5em;
+      border-radius: 20px;
+    }
+    #mainl {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border-spacing: 2cm;
+      margin-right: 20px;
+      width: min-content;
+      height: min-content;
+      margin-bottom: 35px;
+      margin-left: 0px;
+    }
+    .text {
+      font-size: 2.75vw;
+      word-wrap: break-word;
+    }
+    
+    .Thumbnail {
+      display: inline-block;
+      width: 100%;
+      height: auto;
+      text-align: center;
+      vertical-align: middle;
+      margin: auto;
+      margin-top: 10%;
+    }
+    .title {
+      font-size: 15px;
+      margin: auto;
+      width: 85%;
+      padding: 10px;
+    }
+    .subscribe{
+      padding: 10px;
+      margin: 10px;
+      padding-left: 5px;
+    }
+    #info {
+      padding-top: 20px;
+    }
+    #info h1{
+      font-size: 150%;
+      text-align: center;
+    }
+    #inputinfo input {
+      width: 80%;
+    }
+    .allview {
+      padding: 0;
+      margin-right: 2%;
+    }
+    footer {
+      margin-top: 20px;
+    }
+    #copyright {
+      text-align: center;
+    }
+    #title {
+      font-size: 3vw;
+    }
+    #uptodate {
+      display: none;
+    }
+    .side {
+      display: block;
+    }
+    #title {
+      margin-left: 10px;
+      margin-right: 10px;
+    }
+    #mainpicture {
+      width: 95%;
+      margin: 10px;
+      padding: 0;
+    }
+    .subsections {
+      display: block;
+      margin-right: 25px;
+      overflow-x: hidden;
+      width: 100%;
+    }
+    .mainbody {
+      width: 94%;
+      padding: 0;
+      margin: 2.5%;
+    }
+    #subtitle {
+      font-size: 4vw;
+    }
+    .recipe {
+      font-size: 10px;
+      overflow-wrap: break-word;
+      padding-left: 5px;
+      padding-right: 5px;
+    }
+    #other {
+      display: none;
+    }
+    #aboutsub {
+      padding-bottom: 0;
+      font-size: 6vw;
+    }
+    #aboutsubpara {
+      font-size: 4vw;
+      margin: 5%;
+    }
+    #hp {
+      margin-top: 10%;
+      width: 25%;
+      height: 25%;
+    }
+    #yout_video {
+      margin: 0;
+      margin-left: 2.5%;
+      margin-top: 2.5%;
+    }
+    #email {
+      display: flex;
+      margin-left: 10px;
+      font-size: 5vw;
+      border-radius: 10px;
+      margin-bottom: 0.5cm;
+    }
+
+  }
+  
