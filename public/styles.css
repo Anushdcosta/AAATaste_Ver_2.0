@@ -264,6 +264,7 @@ footer {
 
 #info {
   padding-top: 1.5cm;
+  align-items: center ;
 }
 #abouth1 {
   text-align: center;
@@ -715,3 +716,7 @@ margin-top: 60px;
 }
 
 
+/* contact */
+#contact_title {
+  align-items: center;
+}
