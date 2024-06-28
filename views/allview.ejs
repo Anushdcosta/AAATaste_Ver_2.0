@@ -47,16 +47,27 @@
       </ol>
     </div>
   </div>
-  
+ <% if (webpage == 0) {%>
   <ul class="prevnext">
     <li id="prev">
-      <button class="goback" onclick="changeval(1)"><h1>&lt;</h1></button>
+      <button class="goback" onclick="changeval(1, 'all_videos')"><h1>&lt;</h1></button>
     
     </li>
     <li id="next">
-      <button id="offon" onclick="changeval(0)"><h1>></h1></button>
+      <button id="offon" onclick="changeval(0, 'all_videos')"><h1>></h1></button>
     </li>
   </ul>
+  <% } else { %>
+    <ul class="prevnext">
+      <li id="prev">
+        <button class="goback" onclick="changeval(1, <%- name %> )"><h1>&lt;</h1></button>
+      
+      </li>
+      <li id="next">
+        <button id="offon" onclick="changeval(0, <%- name %>)"><h1>></h1></button>
+      </li>
+    </ul>
+  <% }%>
 
   <%- include("./partials/foot.ejs") %>
 
@@ -64,7 +75,8 @@
     var startlimit = <%= startlimit %>;
     var endlimit = <%= endlimit %>;
 
-    function changeval(prevnext) {
+    function changeval(prevnext, type) {
+      console.log(type)
       if (prevnext == 1) {
         startlimit = Math.max(0, startlimit - 6);
         endlimit = Math.max(7, endlimit - 6);
@@ -76,7 +88,7 @@
         endlimit = <%=blogs.length%>;
       }
       }
-      window.location.href = `/blogs/all_videos?startlimit=${startlimit}&endlimit=${endlimit}#eachvid`;
+      window.location.href = `/blogs/${type}?startlimit=${startlimit}&endlimit=${endlimit}#eachvid`;
     }
   </script>
 

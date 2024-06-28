@@ -1,8 +1,10 @@
 <html lang="en">
+  <!-- Including all the stylesheets and the navigational menu -->
 <%- include("./partials/header.ejs") %>
 <%- include('./partials/menu.ejs') %>
 <body>
   <div class="fullpage">
+    <!-- an ejs script with a javascript function that generated a random set of numbers  -->
   <%
   function generateUniqueRandoms(min, max, count) {
     let nums = new Set();
@@ -15,16 +17,19 @@
     return Array.from(nums);
 }
 %>
-  <%- include("./partials/mainhead.ejs") %>
+    <!-- including the head of the page -->
+    <%- include("./partials/mainhead.ejs") %>
   <div>
+    <!-- displaying the title of the video -->
     <h1 id="title"><%- blog.name %></h1>
-    <% console.log(blogs.length); %>
   </div>
   <ul class="side">
+    <!-- displaying the thumbnail of the video -->
     <li>
       <img src="<%= blog.thumb %>" alt="" id="mainpicture" />
     </li>
     <li id="uptodate">
+      <!-- Adding an advertisement to the website -->
       <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9481773492516595"
      crossorigin="anonymous"></script>
 <!-- square responsive -->
@@ -37,6 +42,7 @@
 <script>
      (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
+<!-- displaying social media accounts -->
 <div class="allupto">
       <h2>Stay Up To Date</h2>
       <div>
@@ -59,6 +65,7 @@
     </li>
   </ul>
   <div class="subsections">
+    <!-- displaying the ingredients of the video -->
     <div class="mainbody">
       <h2 id="subtitle">Ingredients</h2>
       <div class="recipe">
@@ -69,6 +76,7 @@
         <label for="ing"><%= newarr[i]%> <br></label>
         <% }} %>
       </div>
+      <!-- displaying the Method of the video -->
       <h2 id="subtitle" class="lobster-regular">Method</h2>
       <div class="recipe">
         <% let recipearr = blog.recipe.split("\n")
@@ -76,6 +84,8 @@
       if (recipearr[i] != "") {%>
         <li><label id="recipe"><%= recipearr[i]%> <br></label></li>
         <% }} %>
+
+        <!-- displaying the video -->
         <h1 id="subtitle"><br>Video</h1>
         <%
         embed_link = "https://www.youtube.com/embed/" + blog.link.split("=")[1]
@@ -83,6 +93,7 @@
         %>
         <iframe src="<%= embed_link%>" id="yout_video" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
         <div id="comment">
+          <!-- Adding a comments section -->
           <h2>Comments</h2>
           <form action="/blogs/<%= blog._id %>" method="post">
             <input type="email" placeholder="Email id" name="email" id="email" required>
@@ -92,7 +103,7 @@
         </div>
       </div>
     </div>
-    <% let random = generateUniqueRandoms(0, blogs.length-1, 4);%>
+<!-- A small about description with a photo -->
     <div class="subbody">
       <h1 id="aboutsub">&star; About Me &star;</h1>
       <img src="/veena.jpeg" alt="" width="200" height="200" id="hp" />
@@ -108,6 +119,8 @@
       </p>
       <div id="other">
       <h1 id="aboutsub">&star; Other Recipes &star;</h1>
+      <!-- 4 random video suggestions (title, thumbnail) -->
+      <% let random = generateUniqueRandoms(0, blogs.length-1, 4);%>
       <% for (let i=0; i < random.length; i++) {
           let indice = random[i]
           sampleblog = blogs[String(indice)]
@@ -126,6 +139,7 @@
           </a>
           <% }%>
         </div>
+        </li>
       </div>
       </li>
     </div>
