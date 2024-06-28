@@ -42,11 +42,11 @@
           <li class="bord">
             <ul class="onebelow">
               <li>
-                <img class="Thumbnail" src="<%= sampleblog.thumb %>" alt="hello" /> 
+                <img class="mThumbnail" src="<%= sampleblog.thumb %>" alt="hello" /> 
               </li>
               <li>
                 <h2><%= ellipsify(sampleblog.name, 45) %></h2>
-                <h3><%= ellipsify(sampleblog.recipe, 250) %></h3>
+                <h3 style="white-space: pre-line"><%= ellipsify(sampleblog.Ingredients, 150) %></h3>
               </li>
             </ul>
           </li>

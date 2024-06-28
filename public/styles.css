@@ -608,8 +608,7 @@ footer {
 
 .colitemlist h2 {
   
-    font-size: 100%;
-    text-decoration: underline;
+    font-size: 20px;
     margin-bottom: 0%;
     display: flex;
     margin-left: 18px;
@@ -619,6 +618,7 @@ footer {
     justify-content: flex-end;
     align-items: center;
     flex-direction: column;
+    font-weight: 100;
 }
 .colitemlist h3 {
   padding-right: 10%;
@@ -627,9 +627,18 @@ footer {
   padding-bottom: 20px;
 }
 .onebelow{
-  display: grid;
-  grid-template-rows: 1fr;
-  align-items: center;
+  display: flexbox;
+  grid-auto-rows: auto;
+  align-items: start;
+  height: 13cm;
+  justify-items: stretch;
+}
+.onebelow h2, h3 {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.mThumbnail {
+  padding-bottom: 0;
+  margin: 0;
 }
 .colitemlist ol:only-child {
   list-style-type: none;
