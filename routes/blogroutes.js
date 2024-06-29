@@ -16,7 +16,20 @@ router.get("/", (req, res) => {
       console.log("err");
     });
 });
+// This page loads the playlist with all the recipes
+router.get('/all_videos?', (req, res) => {
+  console.log(req.query)
+  const startlimit = req.query["startlimit"] || 0; // price_descending
+  const endlimit = req.query["endlimit"] || 7;
+  Blog.find()
+    .then((result) => {
+      res.render("allview", {name: "all_videos",  blogs: result, webpage: 0 , startlimit: startlimit, endlimit: endlimit});
 
+    })
+    .catch((err) => {
+      console.error(err);
+    });
+});
 // This page loads the playlist with all the chicken recipes
 router.get("/chicken?", (req, res) => {
   console.log(req.query)
@@ -69,18 +82,7 @@ router.get("/vegetable?", (req, res) => {
       console.log("err");
     });
 });
-router.get("/pork?", (req, res) => {
-  console.log(req.query)
-  const startlimit = req.query["startlimit"] || 0; // price_descending
-  const endlimit = req.query["endlimit"] || 7;
-  Blog.find()
-    .then((result) => {
-      res.render("allview", {name: "pork", blogs: result, webpage: 8 , startlimit: startlimit, endlimit: endlimit});
-    })
-    .catch((err) => {
-      console.log("err");
-    });
-});
+
 // This page loads the playlist with all the sweets recipes
 router.get("/sweets?", (req, res) => {
   console.log(req.query)
@@ -102,6 +104,33 @@ router.get("/drinks?", (req, res) => {
   Blog.find()
     .then((result) => {
       res.render("allview", {name: "drinks", blogs: result, webpage: 6  , startlimit: startlimit, endlimit: endlimit});
+    })
+    .catch((err) => {
+      console.log("err");
+    });
+});
+// This page loads the playlist with all the recipes
+router.get('/breakfast?', (req, res) => {
+  console.log(req.query)
+  const startlimit = req.query["startlimit"] || 0; // price_descending
+  const endlimit = req.query["endlimit"] || 7;
+  Blog.find()
+    .then((result) => {
+      res.render("allview", {name: "breakfast", blogs: result, webpage: 7 , startlimit: startlimit, endlimit: endlimit});
+
+    })
+    .catch((err) => {
+      console.error(err);
+    });
+});
+// This page loads the playlist with all the recipes
+router.get("/pork?", (req, res) => {
+  console.log(req.query)
+  const startlimit = req.query["startlimit"] || 0; // price_descending
+  const endlimit = req.query["endlimit"] || 7;
+  Blog.find()
+    .then((result) => {
+      res.render("allview", {name: "pork", blogs: result, webpage: 8 , startlimit: startlimit, endlimit: endlimit});
     })
     .catch((err) => {
       console.log("err");
@@ -170,7 +199,7 @@ router.get('/cakes', (req, res) => {
   const endlimit = req.query["endlimit"] || 7;
   Blog.find()
     .then((result) => {
-      res.render("allview", {name: "cakes",  blogs: result, webpage: 0 , startlimit: startlimit, endlimit: endlimit});
+      res.render("allview", {name: "cakes",  blogs: result, webpage: 13, startlimit: startlimit, endlimit: endlimit});
 
     })
     .catch((err) => {
@@ -184,7 +213,7 @@ router.get('/starter?', (req, res) => {
   const endlimit = req.query["endlimit"] || 7;
   Blog.find()
     .then((result) => {
-      res.render("allview", {name: "starter",  blogs: result, webpage: 0 , startlimit: startlimit, endlimit: endlimit});
+      res.render("allview", {name: "starter",  blogs: result, webpage: 14 , startlimit: startlimit, endlimit: endlimit});
 
     })
     .catch((err) => {
@@ -198,7 +227,7 @@ router.get('/pickles?', (req, res) => {
   const endlimit = req.query["endlimit"] || 7;
   Blog.find()
     .then((result) => {
-      res.render("allview", {name: "pickles",  blogs: result, webpage: 0 , startlimit: startlimit, endlimit: endlimit});
+      res.render("allview", {name: "pickles",  blogs: result, webpage: 15 , startlimit: startlimit, endlimit: endlimit});
 
     })
     .catch((err) => {
@@ -212,7 +241,7 @@ router.get('/rice?', (req, res) => {
   const endlimit = req.query["endlimit"] || 7;
   Blog.find()
     .then((result) => {
-      res.render("allview", {name: "rice", blogs: result, webpage: 0 , startlimit: startlimit, endlimit: endlimit});
+      res.render("allview", {name: "rice", blogs: result, webpage: 16 , startlimit: startlimit, endlimit: endlimit});
 
     })
     .catch((err) => {
@@ -226,7 +255,7 @@ router.get('/evening?', (req, res) => {
   const endlimit = req.query["endlimit"] || 7;
   Blog.find()
     .then((result) => {
-      res.render("allview", {name: "evening", blogs: result, webpage: 0 , startlimit: startlimit, endlimit: endlimit});
+      res.render("allview", {name: "evening", blogs: result, webpage: 17 , startlimit: startlimit, endlimit: endlimit});
 
     })
     .catch((err) => {
@@ -240,35 +269,7 @@ router.get('/special?', (req, res) => {
   const endlimit = req.query["endlimit"] || 7;
   Blog.find()
     .then((result) => {
-      res.render("allview", {name: "special", blogs: result, webpage: 0 , startlimit: startlimit, endlimit: endlimit});
-
-    })
-    .catch((err) => {
-      console.error(err);
-    });
-});
-// This page loads the playlist with all the recipes
-router.get('/breakfast?', (req, res) => {
-  console.log(req.query)
-  const startlimit = req.query["startlimit"] || 0; // price_descending
-  const endlimit = req.query["endlimit"] || 7;
-  Blog.find()
-    .then((result) => {
-      res.render("allview", {name: "breakfast", blogs: result, webpage: 7 , startlimit: startlimit, endlimit: endlimit});
-
-    })
-    .catch((err) => {
-      console.error(err);
-    });
-});
-// This page loads the playlist with all the recipes
-router.get('/all_videos?', (req, res) => {
-  console.log(req.query)
-  const startlimit = req.query["startlimit"] || 0; // price_descending
-  const endlimit = req.query["endlimit"] || 7;
-  Blog.find()
-    .then((result) => {
-      res.render("allview", { blogs: result, webpage: 0 , startlimit: startlimit, endlimit: endlimit});
+      res.render("allview", {name: "special", blogs: result, webpage: 18 , startlimit: startlimit, endlimit: endlimit});
 
     })
     .catch((err) => {

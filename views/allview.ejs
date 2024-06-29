@@ -8,13 +8,14 @@
     <%- include("./partials/mainhead.ejs") %>
     <div class="content">
       <ol id="mainl">
-        
-        <% if (webpage > 0) { %>
+
             <% if (blogs.length > 0) { %> 
         <%for (let i = blogs.length-1; i >= 0; i--) { blog = blogs[i] %>
-          <% if (blog.categ == webpage) {
+          <% 
+          console.log(blog.categ, webpage);
+          if (webpage in blog.categ) {
             num = num + 1;
-            if (startlimit <= num < endlimit) { 
+            if (num < endlimit &&  num >= startlimit ) { 
               %>
         <li id="eachvid">
           <a class="singlevid" href="/blogs/<%= blog._id %>">
@@ -27,23 +28,6 @@
           </a>
         </li>
         <% }}}} %>
-        <% } else { %>
-          <% if (blogs.length > 0) { %> 
-      <%for (let i = blogs.length-1; i >= 0; i--) { blog = blogs[i]
-          num = num + 1;
-          if (num < endlimit &&  num >= startlimit ) { 
-            %>
-      <li id="eachvid">
-        <a class="singlevid" href="/blogs/<%= blog._id %>">
-          <div class="container">
-            <img src="<%= blog.thumb %>" alt="Avatar" class="sThumbnail">
-            <div class="overlay">
-              <div class="text"><%= blog.name %></div>
-            </div>  
-          </div>
-        </a>
-      </li>
-      <% }}}}%>
       </ol>
     </div>
   </div>
