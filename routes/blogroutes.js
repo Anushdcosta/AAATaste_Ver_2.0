@@ -30,7 +30,7 @@ router.get('/all_videos?', (req, res) => {
         }
       });
     
-      res.render("allview", {numofelem: numofelem, name: "all_videos",  blogs: result, webpage: "0" , startlimit: startlimit, endlimit: endlimit});
+      res.render("allview", {numofelem: numofelem, name: "All",  blogs: result, webpage: "0" , startlimit: startlimit, endlimit: endlimit});
 
     })
     .catch((err) => {
