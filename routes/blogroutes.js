@@ -13,12 +13,12 @@ router.get("/", (req, res) => {
       res.render("index", {blogs: result, webpage: 0  });
     })
     .catch((err) => {
-      console.log("err");
+    
     });
 });
 // This page loads the playlist with all the recipes
 router.get('/all_videos?', (req, res) => {
-  console.log(req.query)
+
   const startlimit = req.query["startlimit"] || 0; // price_descending
   const endlimit = req.query["endlimit"] || 7;
   numofelem = 0;
@@ -29,7 +29,7 @@ router.get('/all_videos?', (req, res) => {
           numofelem = numofelem + 1;
         }
       });
-      console.log(numofelem)
+    
       res.render("allview", {numofelem: numofelem, name: "all_videos",  blogs: result, webpage: "0" , startlimit: startlimit, endlimit: endlimit});
 
     })
@@ -39,7 +39,7 @@ router.get('/all_videos?', (req, res) => {
 });
 // This page loads the playlist with all the chicken recipes
 router.get("/chicken?", (req, res) => {
-  console.log(req.query)
+
   const startlimit = req.query["startlimit"] || 0; // price_descending
   const endlimit = req.query["endlimit"] || 7;
   numofelem = 0;
@@ -48,21 +48,21 @@ router.get("/chicken?", (req, res) => {
       result.forEach(blog => {
         blog.categ.forEach(category => {
           if (category == "1") {
-            console.log(true);
+          
             numofelem = numofelem + 1;
           }
         });
       });
-      console.log(numofelem)
+    
       res.render("allview", {numofelem: numofelem, name: "chicken", blogs: result, webpage: "1", startlimit: startlimit, endlimit: endlimit});
     })
     .catch((err) => {
-      console.log("err");
+    
     });
 });
 // This page loads the playlist with all the seafood recipes
 router.get("/seafood?", (req, res) => {
-  console.log(req.query)
+
   const startlimit = req.query["startlimit"] || 0; // price_descending
   const endlimit = req.query["endlimit"] || 7;
   numofelem = 0;
@@ -71,7 +71,7 @@ router.get("/seafood?", (req, res) => {
       result.forEach(blog => {
         blog.categ.forEach(category => {
           if (category == "2") {
-            console.log(true);
+          
             numofelem = numofelem + 1;
           }
         });
@@ -79,12 +79,12 @@ router.get("/seafood?", (req, res) => {
       res.render("allview", {numofelem: numofelem, name: "seafood",blogs: result, webpage: "2" , startlimit: startlimit, endlimit: endlimit});
     })
     .catch((err) => {
-      console.log("err");
+    
     });
 });
 // This page loads the playlist with all the mutton recipes
 router.get("/Mutton?", (req, res) => {
-  console.log(req.query)
+
   const startlimit = req.query["startlimit"] || 0; // price_descending
   const endlimit = req.query["endlimit"] || 7;
   numofelem = 0;
@@ -93,7 +93,7 @@ router.get("/Mutton?", (req, res) => {
       result.forEach(blog => {
         blog.categ.forEach(category => {
           if (category == "3") {
-            console.log(true);
+          
             numofelem = numofelem + 1;
           }
         });
@@ -101,12 +101,12 @@ router.get("/Mutton?", (req, res) => {
       res.render("allview", {name: "mutton",blogs: result, webpage: "3"  , startlimit: startlimit, endlimit: endlimit});
     })
     .catch((err) => {
-      console.log("err");
+    
     });
 });
 // This page loads the playlist with all the vegetable recipes
 router.get("/vegetable?", (req, res) => {
-  console.log(req.query)
+
   const startlimit = req.query["startlimit"] || 0; // price_descending
   const endlimit = req.query["endlimit"] || 7;
   numofelem = 0;
@@ -115,7 +115,7 @@ router.get("/vegetable?", (req, res) => {
       result.forEach(blog => {
         blog.categ.forEach(category => {
           if (category == "4") {
-            console.log(true);
+          
             numofelem = numofelem + 1;
           }
         });
@@ -123,13 +123,13 @@ router.get("/vegetable?", (req, res) => {
       res.render("allview", {numofelem: numofelem, name: "vegetable", blogs: result, webpage: "4" , startlimit: startlimit, endlimit: endlimit});
     })
     .catch((err) => {
-      console.log("err");
+    
     });
 });
 
 // This page loads the playlist with all the sweets recipes
 router.get("/sweets?", (req, res) => {
-  console.log(req.query)
+
   const startlimit = req.query["startlimit"] || 0; // price_descending
   const endlimit = req.query["endlimit"] || 7;
   numofelem = 0;
@@ -138,7 +138,7 @@ router.get("/sweets?", (req, res) => {
       result.forEach(blog => {
         blog.categ.forEach(category => {
           if (category == "5") {
-            console.log(true);
+          
             numofelem = numofelem + 1;
           }
         });
@@ -146,12 +146,12 @@ router.get("/sweets?", (req, res) => {
       res.render("allview", {numofelem: numofelem, name: "sweets",blogs: result, webpage: "5" , startlimit: startlimit, endlimit: endlimit});
     })
     .catch((err) => {
-      console.log("err");
+    
     });
 });
 // This page loads the playlist with all the drinks recipes
 router.get("/drinks?", (req, res) => {
-  console.log(req.query)
+
   const startlimit = req.query["startlimit"] || 0; // price_descending
   const endlimit = req.query["endlimit"] || 7;
   numofelem = 0;
@@ -160,7 +160,7 @@ router.get("/drinks?", (req, res) => {
       result.forEach(blog => {
         blog.categ.forEach(category => {
           if (category == "6") {
-            console.log(true);
+          
             numofelem = numofelem + 1;
           }
         });
@@ -168,13 +168,13 @@ router.get("/drinks?", (req, res) => {
       res.render("allview", {numofelem: numofelem, name: "drinks", blogs: result, webpage: "6"  , startlimit: startlimit, endlimit: endlimit});
     })
     .catch((err) => {
-      console.log("err");
+    
     });
 });
 // stopped here
 // This page loads the playlist with all the recipes
 router.get('/breakfast?', (req, res) => {
-  console.log(req.query)
+
   const startlimit = req.query["startlimit"] || 0; // price_descending
   const endlimit = req.query["endlimit"] || 7;
   numofelem = 0;
@@ -183,7 +183,7 @@ router.get('/breakfast?', (req, res) => {
       result.forEach(blog => {
         blog.categ.forEach(category => {
           if (category == "7") {
-            console.log(true);
+          
             numofelem = numofelem + 1;
           }
         });
@@ -197,7 +197,7 @@ router.get('/breakfast?', (req, res) => {
 });
 // This page loads the playlist with all the recipes
 router.get("/pork?", (req, res) => {
-  console.log(req.query)
+
   const startlimit = req.query["startlimit"] || 0; // price_descending
   const endlimit = req.query["endlimit"] || 7;
   numofelem = 0;
@@ -206,7 +206,7 @@ router.get("/pork?", (req, res) => {
       result.forEach(blog => {
         blog.categ.forEach(category => {
           if (category == "8") {
-            console.log(true);
+          
             numofelem = numofelem + 1;
           }
         });
@@ -214,12 +214,12 @@ router.get("/pork?", (req, res) => {
       res.render("allview", {numofelem: numofelem, name: "pork", blogs: result, webpage: "8" , startlimit: startlimit, endlimit: endlimit});
     })
     .catch((err) => {
-      console.log("err");
+    
     });
 });
 // This page loads the playlist with all the recipes
 router.get('/egg?', (req, res) => {
-  console.log(req.query)
+
   const startlimit = req.query["startlimit"] || 0; // price_descending
   const endlimit = req.query["endlimit"] || 7;
   numofelem = 0;
@@ -228,7 +228,7 @@ router.get('/egg?', (req, res) => {
       result.forEach(blog => {
         blog.categ.forEach(category => {
           if (category == "9") {
-            console.log(true);
+          
             numofelem = numofelem + 1;
           }
         });
@@ -242,7 +242,7 @@ router.get('/egg?', (req, res) => {
 });
 // This page loads the playlist with all the recipes
 router.get('/pizza?', (req, res) => {
-  console.log(req.query)
+
   const startlimit = req.query["startlimit"] || 0; // price_descending
   const endlimit = req.query["endlimit"] || 7;
   numofelem = 0;
@@ -251,7 +251,7 @@ router.get('/pizza?', (req, res) => {
       result.forEach(blog => {
         blog.categ.forEach(category => {
           if (category == "10") {
-            console.log(true);
+          
             numofelem = numofelem + 1;
           }
         });
@@ -265,7 +265,7 @@ router.get('/pizza?', (req, res) => {
 });
 // This page loads the playlist with all the recipes
 router.get('/monthi?', (req, res) => {
-  console.log(req.query)
+
   const startlimit = req.query["startlimit"] || 0; // price_descending
   const endlimit = req.query["endlimit"] || 7;
   numofelem = 0;
@@ -274,7 +274,7 @@ router.get('/monthi?', (req, res) => {
       result.forEach(blog => {
         blog.categ.forEach(category => {
           if (category == "11") {
-            console.log(true);
+          
             numofelem = numofelem + 1;
           }
         });
@@ -288,7 +288,7 @@ router.get('/monthi?', (req, res) => {
 });
 // This page loads the playlist with all the recipes
 router.get('/postnatal?', (req, res) => {
-  console.log(req.query)
+
   const startlimit = req.query["startlimit"] || 0; // price_descending
   const endlimit = req.query["endlimit"] || 7;
   numofelem = 0;
@@ -297,7 +297,7 @@ router.get('/postnatal?', (req, res) => {
       result.forEach(blog => {
         blog.categ.forEach(category => {
           if (category == "12") {
-            console.log(true);
+          
             numofelem = numofelem + 1;
           }
         });
@@ -311,7 +311,7 @@ router.get('/postnatal?', (req, res) => {
 });
 // This page loads the playlist with all the recipes
 router.get('/cakes', (req, res) => {
-  console.log(req.query)
+
   const startlimit = req.query["startlimit"] || 0; // price_descending
   const endlimit = req.query["endlimit"] || 7;
   numofelem = 0;
@@ -320,7 +320,7 @@ router.get('/cakes', (req, res) => {
       result.forEach(blog => {
         blog.categ.forEach(category => {
           if (category == "13") {
-            console.log(true);
+          
             numofelem = numofelem + 1;
           }
         });
@@ -334,7 +334,7 @@ router.get('/cakes', (req, res) => {
 });
 // This page loads the playlist with all the recipes
 router.get('/starter?', (req, res) => {
-  console.log(req.query)
+
   const startlimit = req.query["startlimit"] || 0; // price_descending
   const endlimit = req.query["endlimit"] || 7;
   numofelem = 0;
@@ -343,7 +343,7 @@ router.get('/starter?', (req, res) => {
       result.forEach(blog => {
         blog.categ.forEach(category => {
           if (category == "14") {
-            console.log(true);
+          
             numofelem = numofelem + 1;
           }
         });
@@ -357,7 +357,7 @@ router.get('/starter?', (req, res) => {
 });
 // This page loads the playlist with all the recipes
 router.get('/pickles?', (req, res) => {
-  console.log(req.query)
+
   const startlimit = req.query["startlimit"] || 0; // price_descending
   const endlimit = req.query["endlimit"] || 7;
   numofelem = 0;
@@ -366,7 +366,7 @@ router.get('/pickles?', (req, res) => {
       result.forEach(blog => {
         blog.categ.forEach(category => {
           if (category == "15") {
-            console.log(true);
+          
             numofelem = numofelem + 1;
           }
         });
@@ -380,7 +380,7 @@ router.get('/pickles?', (req, res) => {
 });
 // This page loads the playlist with all the recipes
 router.get('/rice?', (req, res) => {
-  console.log(req.query)
+
   const startlimit = req.query["startlimit"] || 0; // price_descending
   const endlimit = req.query["endlimit"] || 7;
   numofelem = 0;
@@ -389,7 +389,7 @@ router.get('/rice?', (req, res) => {
       result.forEach(blog => {
         blog.categ.forEach(category => {
           if (category == "16") {
-            console.log(true);
+          
             numofelem = numofelem + 1;
           }
         });
@@ -403,7 +403,7 @@ router.get('/rice?', (req, res) => {
 });
 // This page loads the playlist with all the recipes
 router.get('/evening?', (req, res) => {
-  console.log(req.query)
+
   const startlimit = req.query["startlimit"] || 0; // price_descending
   const endlimit = req.query["endlimit"] || 7;
   numofelem = 0;
@@ -412,7 +412,7 @@ router.get('/evening?', (req, res) => {
       result.forEach(blog => {
         blog.categ.forEach(category => {
           if (category == "17") {
-            console.log(true);
+          
             numofelem = numofelem + 1;
           }
         });
@@ -426,7 +426,7 @@ router.get('/evening?', (req, res) => {
 });
 // This page loads the playlist with all the recipes
 router.get('/special?', (req, res) => {
-  console.log(req.query)
+
   const startlimit = req.query["startlimit"] || 0; // price_descending
   const endlimit = req.query["endlimit"] || 7;
   numofelem = 0;
@@ -435,7 +435,7 @@ router.get('/special?', (req, res) => {
       result.forEach(blog => {
         blog.categ.forEach(category => {
           if (category == "18") {
-            console.log(true);
+          
             numofelem = numofelem + 1;
           }
         });
@@ -460,7 +460,7 @@ router.get("/:id", (req, res) => {
         });
       })
       .catch((err) => {
-        console.log(err);
+      
       });
   });
 });
