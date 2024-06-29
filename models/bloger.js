@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 const blogschema = new Schema(
   {
     categ: {
-      type: String,
+      type: Array,
       required: true,
     },
     link: {

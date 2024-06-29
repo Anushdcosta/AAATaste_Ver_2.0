@@ -630,7 +630,7 @@ footer {
   display: flexbox;
   grid-auto-rows: auto;
   align-items: start;
-  height: 13cm;
+  height: 11cm;
   justify-items: stretch;
 }
 .onebelow h2, h3 {

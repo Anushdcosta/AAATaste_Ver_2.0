@@ -56,7 +56,6 @@ router.get("/Mutton?", (req, res) => {
       console.log("err");
     });
 });
-
 // This page loads the playlist with all the vegetable recipes
 router.get("/vegetable?", (req, res) => {
   console.log(req.query)
@@ -70,7 +69,18 @@ router.get("/vegetable?", (req, res) => {
       console.log("err");
     });
 });
-
+router.get("/pork?", (req, res) => {
+  console.log(req.query)
+  const startlimit = req.query["startlimit"] || 0; // price_descending
+  const endlimit = req.query["endlimit"] || 7;
+  Blog.find()
+    .then((result) => {
+      res.render("allview", {name: "pork", blogs: result, webpage: 8 , startlimit: startlimit, endlimit: endlimit});
+    })
+    .catch((err) => {
+      console.log("err");
+    });
+});
 // This page loads the playlist with all the sweets recipes
 router.get("/sweets?", (req, res) => {
   console.log(req.query)
@@ -84,7 +94,6 @@ router.get("/sweets?", (req, res) => {
       console.log("err");
     });
 });
-
 // This page loads the playlist with all the drinks recipes
 router.get("/drinks?", (req, res) => {
   console.log(req.query)
@@ -98,7 +107,160 @@ router.get("/drinks?", (req, res) => {
       console.log("err");
     });
 });
+// This page loads the playlist with all the recipes
+router.get('/egg?', (req, res) => {
+  console.log(req.query)
+  const startlimit = req.query["startlimit"] || 0; // price_descending
+  const endlimit = req.query["endlimit"] || 7;
+  Blog.find()
+    .then((result) => {
+      res.render("allview", {name: "egg",  blogs: result, webpage: 9 , startlimit: startlimit, endlimit: endlimit});
 
+    })
+    .catch((err) => {
+      console.error(err);
+    });
+});
+// This page loads the playlist with all the recipes
+router.get('/pizza?', (req, res) => {
+  console.log(req.query)
+  const startlimit = req.query["startlimit"] || 0; // price_descending
+  const endlimit = req.query["endlimit"] || 7;
+  Blog.find()
+    .then((result) => {
+      res.render("allview", {name: "pizza", blogs: result, webpage: 10 , startlimit: startlimit, endlimit: endlimit});
+
+    })
+    .catch((err) => {
+      console.error(err);
+    });
+});
+// This page loads the playlist with all the recipes
+router.get('/monthi?', (req, res) => {
+  console.log(req.query)
+  const startlimit = req.query["startlimit"] || 0; // price_descending
+  const endlimit = req.query["endlimit"] || 7;
+  Blog.find()
+    .then((result) => {
+      res.render("allview", {name: "monthi", blogs: result, webpage: 11 , startlimit: startlimit, endlimit: endlimit});
+
+    })
+    .catch((err) => {
+      console.error(err);
+    });
+});
+// This page loads the playlist with all the recipes
+router.get('/postnatal?', (req, res) => {
+  console.log(req.query)
+  const startlimit = req.query["startlimit"] || 0; // price_descending
+  const endlimit = req.query["endlimit"] || 7;
+  Blog.find()
+    .then((result) => {
+      res.render("allview", {name: "postnatal",  blogs: result, webpage: 12 , startlimit: startlimit, endlimit: endlimit});
+
+    })
+    .catch((err) => {
+      console.error(err);
+    });
+});
+// This page loads the playlist with all the recipes
+router.get('/cakes', (req, res) => {
+  console.log(req.query)
+  const startlimit = req.query["startlimit"] || 0; // price_descending
+  const endlimit = req.query["endlimit"] || 7;
+  Blog.find()
+    .then((result) => {
+      res.render("allview", {name: "cakes",  blogs: result, webpage: 0 , startlimit: startlimit, endlimit: endlimit});
+
+    })
+    .catch((err) => {
+      console.error(err);
+    });
+});
+// This page loads the playlist with all the recipes
+router.get('/starter?', (req, res) => {
+  console.log(req.query)
+  const startlimit = req.query["startlimit"] || 0; // price_descending
+  const endlimit = req.query["endlimit"] || 7;
+  Blog.find()
+    .then((result) => {
+      res.render("allview", {name: "starter",  blogs: result, webpage: 0 , startlimit: startlimit, endlimit: endlimit});
+
+    })
+    .catch((err) => {
+      console.error(err);
+    });
+});
+// This page loads the playlist with all the recipes
+router.get('/pickles?', (req, res) => {
+  console.log(req.query)
+  const startlimit = req.query["startlimit"] || 0; // price_descending
+  const endlimit = req.query["endlimit"] || 7;
+  Blog.find()
+    .then((result) => {
+      res.render("allview", {name: "pickles",  blogs: result, webpage: 0 , startlimit: startlimit, endlimit: endlimit});
+
+    })
+    .catch((err) => {
+      console.error(err);
+    });
+});
+// This page loads the playlist with all the recipes
+router.get('/rice?', (req, res) => {
+  console.log(req.query)
+  const startlimit = req.query["startlimit"] || 0; // price_descending
+  const endlimit = req.query["endlimit"] || 7;
+  Blog.find()
+    .then((result) => {
+      res.render("allview", {name: "rice", blogs: result, webpage: 0 , startlimit: startlimit, endlimit: endlimit});
+
+    })
+    .catch((err) => {
+      console.error(err);
+    });
+});
+// This page loads the playlist with all the recipes
+router.get('/evening?', (req, res) => {
+  console.log(req.query)
+  const startlimit = req.query["startlimit"] || 0; // price_descending
+  const endlimit = req.query["endlimit"] || 7;
+  Blog.find()
+    .then((result) => {
+      res.render("allview", {name: "evening", blogs: result, webpage: 0 , startlimit: startlimit, endlimit: endlimit});
+
+    })
+    .catch((err) => {
+      console.error(err);
+    });
+});
+// This page loads the playlist with all the recipes
+router.get('/special?', (req, res) => {
+  console.log(req.query)
+  const startlimit = req.query["startlimit"] || 0; // price_descending
+  const endlimit = req.query["endlimit"] || 7;
+  Blog.find()
+    .then((result) => {
+      res.render("allview", {name: "special", blogs: result, webpage: 0 , startlimit: startlimit, endlimit: endlimit});
+
+    })
+    .catch((err) => {
+      console.error(err);
+    });
+});
+// This page loads the playlist with all the recipes
+router.get('/breakfast?', (req, res) => {
+  console.log(req.query)
+  const startlimit = req.query["startlimit"] || 0; // price_descending
+  const endlimit = req.query["endlimit"] || 7;
+  Blog.find()
+    .then((result) => {
+      res.render("allview", {name: "breakfast", blogs: result, webpage: 7 , startlimit: startlimit, endlimit: endlimit});
+
+    })
+    .catch((err) => {
+      console.error(err);
+    });
+});
 // This page loads the playlist with all the recipes
 router.get('/all_videos?', (req, res) => {
   console.log(req.query)
@@ -113,7 +275,6 @@ router.get('/all_videos?', (req, res) => {
       console.error(err);
     });
 });
-
 // This page loads an individual page for any of the recipes clicked based on the id
 router.get("/:id", (req, res) => {
   const id = req.params.id;
