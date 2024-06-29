@@ -747,3 +747,30 @@ margin-top: 60px;
   color: black;
   text-align: unset;
 }
+#offonback {
+  background-color: white;
+  border: none;
+  font-size: larger;
+}
+
+#offonback:hover {
+  cursor: pointer;
+}
+
+#offonforw {
+  background-color: white;
+  border: none;
+  font-size: larger;
+}
+
+#offonforw:hover {
+  cursor: pointer;
+}
+#offonforw:disabled:hover {
+  color: white;
+  cursor: default;
+}
+#offonback:disabled:hover {
+  color: white;
+  cursor: default;
+}
