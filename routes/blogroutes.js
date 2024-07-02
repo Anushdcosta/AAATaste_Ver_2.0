@@ -16,11 +16,12 @@ router.get("/", (req, res) => {
     
     });
 });
+
 // This page loads the playlist with all the recipes
 router.get('/all_videos?', (req, res) => {
 
   const startlimit = req.query["startlimit"] || 0; // price_descending
-  const endlimit = req.query["endlimit"] || 7;
+  const endlimit = req.query["endlimit"] || 6;
   numofelem = 0;
   Blog.find()
     .then((result) => {
@@ -447,6 +448,72 @@ router.get('/special?', (req, res) => {
       console.error(err);
     });
 });
+// This page loads the playlist with all the recipes
+router.get('/beef?', (req, res) => {
+  const startlimit = req.query["startlimit"] || 0; // price_descending
+  const endlimit = req.query["endlimit"] || 7;
+  numofelem = 0;
+  Blog.find()
+    .then((result) => {
+      result.forEach(blog => {
+        blog.categ.forEach(category => {
+          if (category == "19") {
+          
+            numofelem = numofelem + 1;
+          }
+        });
+      });
+    res.render("allview", {numofelem: numofelem, name: "beef", blogs: result, webpage: "19" , startlimit: startlimit, endlimit: endlimit});
+
+    })
+    .catch((err) => {
+      console.error(err);
+    });
+});
+router.get('/nonveg?', (req, res) => {
+  const startlimit = req.query["startlimit"] || 0; // price_descending
+  const endlimit = req.query["endlimit"] || 7;
+  numofelem = 0;
+  const targetCategories = ["1", "2", "3", "8", "19"];
+  Blog.find()
+    .then((result) => {
+      result.forEach(blog => {
+        if (blog.categ.some(category => targetCategories.includes(category))) {
+          numofelem = numofelem + 1;
+          console.log("numofelem: ", numofelem)
+        } else {
+          console.log("not found")
+        }
+      });
+    res.render("allview", {targetcat: targetCategories,numofelem: numofelem, name: "nonveg", blogs: result, webpage: "30" , startlimit: startlimit, endlimit: endlimit});
+
+    })
+    .catch((err) => {
+      console.error(err);
+    });
+});
+router.get('/AZrecipes?', (req, res) => {
+  const startlimit = req.query["startlimit"] || 0; // price_descending
+  const endlimit = req.query["endlimit"] || 7;
+  numofelem = 0;
+  const targetCategories = ["18"];
+  Blog.find()
+    .then((result) => {
+      result.forEach(blog => {
+        if (blog.categ.some(category => targetCategories.includes(category))) {
+          numofelem = numofelem + 1;
+          console.log("numofelem: ", numofelem)
+        } else {
+          console.log("not found")
+        }
+      });
+    res.render("allview", {targetcat: targetCategories, numofelem: numofelem, name: "All", blogs: result, webpage: "31" , startlimit: startlimit, endlimit: endlimit});
+
+    })
+    .catch((err) => {
+      console.error(err);
+    });
+});
 // This page loads an individual page for any of the recipes clicked based on the id
 router.get("/:id", (req, res) => {
   const id = req.params.id;
@@ -464,5 +531,7 @@ router.get("/:id", (req, res) => {
       });
   });
 });
+
+
 
 module.exports = router;

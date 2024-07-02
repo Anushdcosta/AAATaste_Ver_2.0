@@ -11,7 +11,10 @@
     <div class="content">
       <ol id="mainl">
 
-            <% if (blogs.length > 0) { %> 
+            <% 
+            console.log(webpage != "30");
+            if ((webpage != "30") && (webpage != "31")){
+            if (blogs.length > 0) { %> 
         <%for (let i = blogs.length-1; i >= 0; i--) { blog = blogs[i] %>
           <% 
           for (let j = 0; j < blog.categ.length; j++) {
@@ -29,38 +32,52 @@
             </div>
           </a>
         </li>
-        <% }}}}} %>
+        <% }}}}}} else {
+          if (webpage == "30") {%>
+            <%  if (blogs.length > 0) { %> 
+          <%for (let i = blogs.length-1; i >= 0; i--) { blog = blogs[i] %>
+            <% 
+            if (blog.categ.some(category => targetcat.includes(category))) {
+              num = num + 1;
+              if (num <= endlimit &&  num > startlimit ) { 
+                if ()
+                %>
+          <li id="eachvid">
+            <a class="singlevid" href="/blogs/<%= blog._id %>">
+              <div class="container">
+                <img src="<%= blog.thumb %>" alt="Avatar" class="sThumbnail">
+                <div class="overlay">
+                  <div class="text"><%= blog.name %></div>
+                </div>
+              </div>
+            </a>
+          </li>
+          <% }}}}} else if (webpage == "31") {%>
+            <%  if (blogs.length > 0) { %> 
+          <%for (let i = blogs.length-1; i >= 0; i--) { blog = blogs[i] %>
+            <% 
+            if (blog.categ.some(category => targetcat.includes(category))) {
+              num = num + 1;
+              if (num <= endlimit &&  num > startlimit ) { 
+                %>
+          <li id="eachvid">
+            <a class="singlevid" href="/blogs/<%= blog._id %>">
+              <div class="container">
+                <img src="<%= blog.thumb %>" alt="Avatar" class="sThumbnail">
+                <div class="overlay">
+                  <div class="text"><%= blog.name %></div>
+                </div>
+              </div>
+            </a>
+          </li>
+          <% }}}}}} %>
       </ol>
     </div>
   </div>
   <%- include("./partials/previnext.ejs") %>
   <%- include("./partials/foot.ejs") %>
 
-  <script>
-    var startlimit = <%= startlimit %>;
-    var endlimit = <%= endlimit %>;
-    function changeval(prevnext, type) {
-      if (prevnext == 1) {
-        startlimit = Math.max(0, startlimit - 6);
-        endlimit = Math.max(6, endlimit - 6);
-      } else {
-        startlimit = startlimit + 6;
-        if (<%-numofelem%> > (endlimit)) {
-          endlimit = endlimit + 6;
-        } else {
-          if (<%-numofelem%> > 6) {
-          startlimit = <%= blogs.length %>-6;
-        } else {
-          startlimit = 0;
-        }
-          endlimit = <%= numofelem %>;
 
-          document.getElementById("offonforw").disabled = true
-        }
-      }
-      window.location.href = `/blogs/${type}?startlimit=${startlimit}&endlimit=${endlimit}#eachvid`;
-    }
-  </script>
 
 </body>
 </html>

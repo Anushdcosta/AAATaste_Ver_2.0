@@ -77,19 +77,6 @@ body::-webkit-scrollbar-thumb {
 .content {
   margin-left: 20px;
 }
-.whoiam {
-  font-family: "Inconsolata", monospace;
-  font-optical-sizing: auto;
-  font-weight: 498;
-  font-style: normal;
-  
-  font-size: 1.5em;
-  font-style: italic;
-  font-stretch: expanded;
-  text-justify: auto;
-  text-align: justify;
-  color: #ffffff;
-}
 .singlevid {
   padding: 0%;
 }
@@ -112,6 +99,46 @@ body::-webkit-scrollbar-thumb {
   justify-content: center;
 }
 
+/* mainnavigation */
+.aboutnav {
+  background-color: #a3a2a2;
+  margin-top: 0%;
+  size-adjust: 0.5;
+}
+.aboutnav ul {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 10px;
+}
+.aboutnav img {
+  border-top: 0.25cm solid black;
+  border-bottom: 0.25cm solid black;
+  margin-left: 0.12cm;
+  margin-top: 0.1cm;
+  max-width: 100%;
+  width: auto;
+  height: auto;
+}
+.aboutnav p {
+  border: double black;
+  font-style: italic;
+  margin-bottom: auto;
+  margin-top: auto;
+  padding: 0.6cm;
+  font-size: 1.35vw;
+  justify-content: center;
+}
+.whoiam {
+  font-family: 'Playwrite FR Trad';
+  font-optical-sizing: auto;
+  font-weight: 498;
+  font-style: normal;
+  
+  font-size: 1cm;
+  font-stretch: expanded;
+  text-justify: auto;
+  text-align: justify;
+}
 /* nav & footer styles */
 .mainnav {
   display: flex;
@@ -185,34 +212,7 @@ footer {
   padding-right: 1cm;
   padding-left: 0.5cm;
 }
-.aboutnav {
-  background-color: #a3a2a2;
-  margin-top: 0%;
-  size-adjust: 0.5;
-}
-.aboutnav ul {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 10px;
-}
-.aboutnav img {
-  border-top: 0.25cm solid black;
-  border-bottom: 0.25cm solid black;
-  padding-left: 0.25cm;
-  max-width: 100%;
-  width: auto;
-  height: auto;
-}
-.aboutnav p {
-  border: double black;
-  font-style: italic;
-  margin-bottom: auto;
-  margin-top: auto;
-  padding: 0.5cm;
-  font-size: 2.5vw;
-  justify-content: center;
 
-}
 
 .subscribe {
   margin-top: 2%;
@@ -427,7 +427,7 @@ footer {
     red,
     yellow
   );
-  padding: 0.4cm;
+  padding: 0.2cm;
   border-radius: 30px;
   color: #ffffff;
 }
@@ -773,4 +773,45 @@ margin-top: 60px;
 #offonback:disabled:hover {
   color: white;
   cursor: default;
+}
+
+#error {
+  display: flex;
+  align-content: flex-end;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding-top: 1cm;
+  
+}
+#full {
+  overflow: hidden;
+  overflow-x: hidden;
+}
+.red {
+  color: red;
+}
+#errorpagepic {
+  height: 3cm;
+}
+
+#imagetop {
+  display: flex;
+  padding-top: 3cm;
+  padding-left: 0cm;
+}
+#imagetop li {
+  padding-left: 6cm;
+  padding-right: 3cm;
+  padding-top: 0.5;
+}
+#imagebot {
+  display: flex;
+  padding-top: 1cm;
+  padding-left: 0cm;
+}
+#imagebot li {
+  padding-left: 6cm;
+  padding-right: 3cm;
+  padding-top: 0.5;
 }

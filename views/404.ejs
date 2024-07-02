@@ -1,0 +1,60 @@
+<%- include("./partials/header.ejs") %>
+
+<body>
+    <div id="full">
+    <%
+    function generateUniqueRandoms(min, max, count) {
+      let nums = new Set();
+      while(nums.size < count) {
+          let num = Math.floor(Math.random() * (max - min + 1)) + min;
+          nums.add(num);
+          
+      }
+      return Array.from(nums);
+  }
+  %>
+  <%let random1 = generateUniqueRandoms(0, blogs.length-1, 2) %>
+  <ul id="imagetop">
+  <% let deg = 20;
+  for (let i = 0; i < random1.length; i++) {
+    blogs.forEach(blog => {
+        if (deg == -20) {
+            deg = 20;
+        } else {
+            deg = -20;
+        }
+        if (blog.roll == random1[i]) {%>
+            <a href="/blogs/<%= blog.id %>">
+            <li style="rotate: <%= deg %>deg;">
+                <img src="<%= blog.thumb %>" id="errorpagepic"/>
+            </li>
+        </a>
+    <%}})} deg = 20;%>
+</ul>
+  
+    <%- include("./partials/menu.ejs") %>
+    <div id="error">
+	    <h1 class="red">Oops!</h1>
+	    <h3>It appears that this Coderoad page you are looking for doesn't exist. Are you sure you have the right link?</h3>
+	    <h3>Try going <a href="/">to the home page.</a></h3>
+    </div>
+    <%let random2 = generateUniqueRandoms(0, blogs.length-1, 2) %>
+  <ul id="imagebot">
+  <%
+  for (let i = 0; i < random2.length; i++) {
+    blogs.forEach(blog => {
+        if (deg == -20) {
+            deg = 20;
+        } else {
+            deg = -20;
+        }
+        if (blog.roll == random2[i]) {%>
+            <li style="rotate: <%= deg %>deg;">
+                <img src="<%= blog.thumb %>" id="errorpagepic"/>
+            </li>
+    <%}})} deg = 20;%>
+</ul>
+</div>
+</body>
+
+</html>

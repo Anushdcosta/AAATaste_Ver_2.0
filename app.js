@@ -53,3 +53,12 @@ app.post("/blogs/:id", (req, res) => {
     res.redirect(`/blogs/${id}`);
   });
 });
+app.use("*",(req, res, next) => {
+  Blog.find()
+  .then((result) => {
+    res.render("404", {
+      blogs:result
+    });
+  })
+  
+});
