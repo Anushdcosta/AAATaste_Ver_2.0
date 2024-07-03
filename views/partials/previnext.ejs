@@ -221,28 +221,4 @@
       document.getElementById("offonback").disabled = true;
     }
     </script>
-      <script>
-        var startlimit = <%= startlimit %>;
-        var endlimit = <%= endlimit %>;
-        function changeval(prevnext, type) {
-          if (prevnext == 1) {
-            startlimit = Math.max(0, startlimit - 6);
-            endlimit = Math.max(6, endlimit - 6);
-          } else {
-            startlimit = startlimit + 6;
-            if (<%-numofelem%> > (endlimit)) {
-              endlimit = endlimit + 6;
-            } else {
-              if (<%-numofelem%> > 6) {
-              startlimit = <%= blogs.length %>-6;
-            } else {
-              startlimit = 0;
-            }
-              endlimit = <%= numofelem %>;
-    
-              document.getElementById("offonforw").disabled = true
-            }
-          }
-          window.location.href = `/blogs/${type}?startlimit=${startlimit}&endlimit=${endlimit}#eachvid`;
-        }
-      </script>
+      

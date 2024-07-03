@@ -139,6 +139,13 @@ body::-webkit-scrollbar-thumb {
   text-justify: auto;
   text-align: justify;
 }
+.headerfile {
+  list-style-type: none;
+}
+.headerfile img {
+  width: 300vw;
+}
+
 /* nav & footer styles */
 .mainnav {
   display: flex;
@@ -184,36 +191,11 @@ footer {
   color: #777;
   text-align: center;
   margin: 10px auto 20px;
+  border-top: 0.5mm solid black;
+  text-align: center;
 }
 
-.blogs_content ol {
-  grid-gap: 10px;
-  padding: 0%;
-  margin: 0%;
-}
-.blogs_content li {
-  border-spacing: 2cm;
-}
-.blogs_content h3 {
-  text-align: left;
-  font-style: oblique;
-}
-#partinfo a:hover {
-  color: #000000;
-}
-.innerelem {
-  display: grid;
-  grid-template-columns: 0.5fr 1.5fr;
-  grid-gap: 10px;
-  list-style: none;
-  border: 0.1em solid black;
-  border-radius: 10px;
-  margin-bottom: 1%;
-  padding-right: 1cm;
-  padding-left: 0.5cm;
-}
-
-
+/* contact us */
 .subscribe {
   margin-top: 2%;
   border: 1mm solid black;
@@ -222,7 +204,6 @@ footer {
   background-color: antiquewhite;
   fill-opacity: 50%;
 }
-
 .subscribe input {
   width: 60%;
   height: 30px;
@@ -231,7 +212,6 @@ footer {
   border-radius: 10px;
   font-size: large;
 }
-
 .subscribe ul {
   list-style: none;
   display: grid;
@@ -261,44 +241,22 @@ footer {
   border-radius: 100px;
   scale: 2px;
 }
-
 #info {
   padding-top: 1.5cm;
   align-items: center ;
 }
+
+/* about page */
 #abouth1 {
   text-align: center;
 }
-
 #fullabout {
   text-align: center;
   font-family: "Dancing Script";
   font-size: 0.75cm;
 }
-.allview {
-  text-align: end;
-  padding-bottom: 1cm;
-}
-.headerfile {
-  list-style-type: none;
-}
+
 /* details page */
-
-.Ingredients {
-  font-size: x-large;
-  text-align: justify;
-  margin-bottom: 1cm;
-}
-.Ingredients input {
-  width: 1cm;
-  height: 1cm;
-  vertical-align: middle;
-  position: relative;
-}
-
-.headerfile img {
-  width: 300vw;
-}
 #title {
   text-transform: capitalize;
   font-size: 1cm;
@@ -314,7 +272,6 @@ footer {
   font-size: 1cm;
   text-decoration: underline;
 }
-
 #mainpicture {
   text-align: center;
   width: 90%;
@@ -323,12 +280,12 @@ footer {
   margin-right: 1cm;
   padding-right: 1cm;
 }
-
 .recipe {
   height: auto;
   font-size: 100%;
+  margin-left: 0.5cm;
+  margin-right: 0.5cm;
 }
-
 .mainbody {
   width: 96%;
   height: 110%;
@@ -363,15 +320,9 @@ footer {
 .specelem {
   width: auto;
 }
-footer {
-  border-top: 0.5mm solid black;
-  text-align: center;
-}
-
 .subbodyblogs img {
   scale: 0.8;
 }
-
 #yout_video {
   width: 15cm;
   height: 9cm;
@@ -379,6 +330,8 @@ footer {
   margin-left: 1.8cm;
   margin-bottom: 0cm;
 }
+
+/* need to clean */
 
 .side {
   list-style-type: none;
@@ -814,4 +767,7 @@ margin-top: 60px;
   padding-left: 6cm;
   padding-right: 3cm;
   padding-top: 0.5;
+}
+#chickensub {
+  display: unset; 
 }

@@ -36,6 +36,11 @@ app.get("/videos", (req, res) => {
 app.get("/about", (req, res) => {
   res.render("about", { title: "about" });
 });
+
+app.get("/15012006", (req, res) => {
+  res.render("games");
+});
+
 app.post("/blogs", (req, res) => {
   const blog = new User(req.body);
   blog.save().then((results) => {
