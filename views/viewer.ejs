@@ -13,7 +13,7 @@
         lisnames = {"1":"chicken", "19":"beef", "3":"mutton", "2":"seafood", "7":"breakfast", "8":"pork", "9":"egg","10":"pizza","11":"monthi","12":"postnatal","13":"cakes","6":"drinks","14":"starter","15":"pickles","16":"rice","17":"evening", "18":"special"};
         targetcat.forEach(element => { 
         %>
-        <h1 style="padding-top: 1.5cm; padding-left: 1cm;padding-bottom: 0.5cm;text-transform: capitalize;"><%-lisnames[element]%> Recipes <br></h1>
+        <h1 id="recipeheader"><%-lisnames[element]%> Recipes <br></h1>
         <ol id="fulllist">
         <%
         num=0;
@@ -35,10 +35,10 @@
             </a>
           </li>
           <% }}}} 
-          theloc = {"1":"/blogs/chicken", "2":"/blogs/seafood", "3":"/blogs/mutton", "8":"/blogs/pork", "19":"/blogs/beef"};
+          theloc = {"1":"chicken", "19":"beef", "3":"mutton", "2":"seafood", "7":"breakfast", "8":"pork", "9":"egg","10":"pizza","11":"monthi","12":"postnatal","13":"cakes","6":"drinks","14":"starter","15":"pickles","16":"rice","17":"evening", "18":"special"};
           %>
         </ol>
-        <a href="<%- theloc[element] %>"><h3 id="redir">view all</h3></a>
+        <a href="<%- theloc[element] %>"><h3 id="redir">view all > </h3></a>
           <%}); %>        
     </div>
   </div>

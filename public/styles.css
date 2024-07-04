@@ -783,4 +783,15 @@ margin-top: 60px;
 }
 #redir {
   color: #000000;
+  text-align: right;
+  padding-top: 5px;
+  padding-right: 40px;
+}
+
+#recipeheader {
+  padding-top: 1cm;
+  padding-left: 1cm;
+  padding-bottom: 0.5cm;
+  text-transform: capitalize;
+  text-decoration: underline;
 }
