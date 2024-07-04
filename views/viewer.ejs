@@ -10,7 +10,7 @@
     <h1 style="text-transform: capitalize;display: flex; justify-content: center; padding-bottom: 20px; text-decoration: underline;"><%- name %> recipes</h1>
     <div class="content">
         <% 
-        lisnames = {"1":"chicken", "2":"seafood", "3":"mutton", "8":"pork", "19":"beef"};
+        lisnames = {"1":"chicken", "19":"beef", "3":"mutton", "2":"seafood", "7":"breakfast", "8":"pork", "9":"egg","10":"pizza","11":"monthi","12":"postnatal","13":"cakes","6":"drinks","14":"starter","15":"pickles","16":"rice","17":"evening", "18":"special"};
         targetcat.forEach(element => { 
         %>
         <h1 style="padding-top: 1.5cm; padding-left: 1cm;padding-bottom: 0.5cm;text-transform: capitalize;"><%-lisnames[element]%> Recipes <br></h1>
@@ -30,7 +30,7 @@
                 <img src="<%= blog.thumb %>" alt="Avatar" class="sThumbnail">
                 <div class="overlay">
                   <div class="text"><%= blog.name %></div>
-                </div>
+                </div>  
               </div>
             </a>
           </li>

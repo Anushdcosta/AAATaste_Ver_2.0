@@ -493,7 +493,7 @@ router.get('/AZrecipes?', (req, res) => {
   const startlimit = req.query["startlimit"] || 0; // price_descending
   const endlimit = req.query["endlimit"] || 7;
   numofelem = 0;
-  const targetCategories = ["18"];
+  const targetCategories = ["6", "7","9","10","11","12","13","14","15","16","17", "18"];
   Blog.find()
     .then((result) => {
       result.forEach(blog => {
@@ -501,7 +501,7 @@ router.get('/AZrecipes?', (req, res) => {
           numofelem = numofelem + 1;
         }
       });
-    res.render("allview", {targetcat: targetCategories, numofelem: numofelem, name: "All", blogs: result, webpage: "31" , startlimit: startlimit, endlimit: endlimit});
+    res.render("viewer", {targetcat: targetCategories, numofelem: numofelem, name: "A-Z", blogs: result, webpage: "31" , startlimit: startlimit, endlimit: endlimit});
 
     })
     .catch((err) => {
