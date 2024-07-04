@@ -480,12 +480,9 @@ router.get('/nonveg?', (req, res) => {
       result.forEach(blog => {
         if (blog.categ.some(category => targetCategories.includes(category))) {
           numofelem = numofelem + 1;
-          console.log("numofelem: ", numofelem)
-        } else {
-          console.log("not found")
         }
       });
-    res.render("allview", {targetcat: targetCategories,numofelem: numofelem, name: "nonveg", blogs: result, webpage: "30" , startlimit: startlimit, endlimit: endlimit});
+    res.render("viewer", {targetcat: targetCategories,numofelem: numofelem, name: "nonveg", blogs: result, webpage: "30" , startlimit: startlimit, endlimit: endlimit});
 
     })
     .catch((err) => {
@@ -502,9 +499,6 @@ router.get('/AZrecipes?', (req, res) => {
       result.forEach(blog => {
         if (blog.categ.some(category => targetCategories.includes(category))) {
           numofelem = numofelem + 1;
-          console.log("numofelem: ", numofelem)
-        } else {
-          console.log("not found")
         }
       });
     res.render("allview", {targetcat: targetCategories, numofelem: numofelem, name: "All", blogs: result, webpage: "31" , startlimit: startlimit, endlimit: endlimit});

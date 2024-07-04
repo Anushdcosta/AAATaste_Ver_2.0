@@ -8,32 +8,38 @@
   <div class="fullpage">
     <%- include("./partials/mainhead.ejs") %>
     <h1 style="text-transform: capitalize;display: flex; justify-content: center; padding-bottom: 20px; text-decoration: underline;"><%- name %> recipes</h1>
-
     <div class="content">
-      <ol id="mainl">
-
+        <% 
+        lisnames = {"1":"chicken", "2":"seafood", "3":"mutton", "8":"pork", "19":"beef"};
+        targetcat.forEach(element => { 
+        %>
+        <h1 style="padding-top: 1.5cm; padding-left: 1cm;padding-bottom: 0.5cm;text-transform: capitalize;"><%-lisnames[element]%> Recipes <br></h1>
+        <ol id="fulllist">
+        <%
+        num=0;
+        for (let i = blogs.length-1; i >= 0; i--) { blog = blogs[i] %>
             <% 
-            console.log(webpage != "30");
-            if ((webpage != "30") && (webpage != "31")){
-            if (blogs.length > 0) { %> 
-        <%for (let i = blogs.length-1; i >= 0; i--) { blog = blogs[i] %>
-          <% 
-          for (let j = 0; j < blog.categ.length; j++) {
-            if (webpage == blog.categ[j]){
-            num = num + 1;
-            if (num <= endlimit &&  num > startlimit ) { 
-              %>
-        <li id="eachvid">
-          <a class="singlevid" href="/blogs/<%= blog._id %>">
-            <div class="container">
-              <img src="<%= blog.thumb %>" alt="Avatar" class="sThumbnail">
-              <div class="overlay">
-                <div class="text"><%= blog.name %></div>
+            for (let j = 0; j < blog.categ.length; j++) {
+              if (element == blog.categ[j]){
+                num = num + 1;
+                if (num < 4 && num > startlimit ) { 
+                %>
+          <li id="eachind">
+            <a class="singlevid" href="/blogs/<%= blog._id %>">
+              <div class="container">
+                <img src="<%= blog.thumb %>" alt="Avatar" class="sThumbnail">
+                <div class="overlay">
+                  <div class="text"><%= blog.name %></div>
+                </div>
               </div>
-            </div>
-          </a>
-        </li>
-        <% }}}}}}%>
+            </a>
+          </li>
+          <% }}}} 
+          theloc = {"1":"/blogs/chicken", "2":"/blogs/seafood", "3":"/blogs/mutton", "8":"/blogs/pork", "19":"/blogs/beef"};
+          %>
+        </ol>
+        <a href="<%- theloc[element] %>"><h3 id="redir">view all</h3></a>
+          <%}); %>        
     </div>
   </div>
   <%- include("./partials/previnext.ejs") %>

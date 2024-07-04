@@ -771,3 +771,16 @@ margin-top: 60px;
 #chickensub {
   display: unset; 
 }
+#fulllist {
+  width: max-content;
+  display: flex;
+}
+#eachind {
+  margin-bottom: 20px;
+  margin-right: 58px;
+  border: 0.1cm solid black;
+  border-radius: 24px;
+}
+#redir {
+  color: #000000;
+}
