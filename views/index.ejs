@@ -2,7 +2,11 @@
 <html lang="en">
 
 <%- include('./partials/header.ejs') %>
+<%- include('./partials/fun.ejs') %>
+<div id="pc">
 <%- include('./partials/menu.ejs') %>
+</div>
+
 <body>
   <%
   function generateUniqueRandoms(min, max, count) {
@@ -33,7 +37,7 @@
   
 <div class="colitemlist">
 <ol>
-  <% let random = generateUniqueRandoms(0, blogs.length-1, 4);%>
+  <% var random = generateUniqueRandoms(0, blogs.length-1, 4);%>
       <% for (let i=0; i < random.length; i++) {
           let indice = random[i]
           sampleblog = blogs[String(indice)]
@@ -53,8 +57,33 @@
           </a>
         
             <% }%>
-        </div>
-        
+  </ol>
+</div>
+
+<div class="colitemlistphone">
+  <ol>
+    <% var random = generateUniqueRandoms(0, blogs.length-1, 1);%>
+        <% for (let i=0; i < random.length; i++) {
+            let indice = random[i]
+            sampleblog = blogs[String(indice)]
+            %>
+            <a class="linkdirect" href="/blogs/<%= sampleblog._id %>">
+            <li class="bord">
+              <ul class="onebelow">
+                <li>
+                  <img class="mThumbnail" src="<%= sampleblog.thumb %>" alt="hello" /> 
+                </li>
+                <li>
+                  <h2><%= ellipsify(sampleblog.name, 45) %></h2>
+                  <h3 style="white-space: pre-line; font-weight: 100;"><%= ellipsify(sampleblog.Ingredients, 150) %></h3>
+                </li>
+              </ul>
+            </li>
+            </a>
+          
+              <% }%>
+    </ol>
+  </div>
 </div>
 
   <%-include("./partials/contactus.ejs")%>

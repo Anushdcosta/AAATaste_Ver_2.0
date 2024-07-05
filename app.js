@@ -40,6 +40,9 @@ app.get("/about", (req, res) => {
 app.get("/15012006", (req, res) => {
   res.render("games");
 });
+app.get("/testpage", (req, res) => {
+  res.render("fun");
+});
 
 app.post("/blogs", (req, res) => {
   const blog = new User(req.body);
@@ -67,3 +70,4 @@ app.use("*",(req, res, next) => {
   })
   
 });
+
