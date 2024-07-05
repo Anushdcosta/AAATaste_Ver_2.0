@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+  <%- include('./partials/phonemenu.ejs') %>
 <%- include('./partials/header.ejs') %>
 <%- include('./partials/menu.ejs') %>
+
+
 <body>
   
   <% num = 0 %>
   <div class="fullpage">
     <%- include("./partials/mainhead.ejs") %>
-    <h1 style="text-transform: capitalize;display: flex; justify-content: center; padding-bottom: 20px; text-decoration: underline;"><%- name %> recipes</h1>
+    <h1 style="text-transform: capitalize;display: flex;justify-content: center;/* padding-bottom: 20px; */text-decoration: underline;"><%- name %> recipes</h1>
     <div class="content">
         <% 
         lisnames = {"1":"chicken", "19":"beef", "3":"mutton", "2":"seafood", "7":"breakfast", "8":"pork", "9":"egg","10":"pizza","11":"monthi","12":"postnatal","13":"cakes","6":"drinks","14":"starter","15":"pickles","16":"rice","17":"evening", "18":"special"};
@@ -41,10 +44,41 @@
         <a href="<%- theloc[element] %>"><h3 id="redir">view all > </h3></a>
           <%}); %>        
     </div>
+    <div class="contentphone">
+      <% 
+      lisnames = {"1":"chicken", "19":"beef", "3":"mutton", "2":"seafood", "7":"breakfast", "8":"pork", "9":"egg","10":"pizza","11":"monthi","12":"postnatal","13":"cakes","6":"drinks","14":"starter","15":"pickles","16":"rice","17":"evening", "18":"special"};
+      targetcat.forEach(element => { 
+      %>
+      <h1 id="recipeheader"><%-lisnames[element]%> Recipes <br></h1>
+      <ol id="fulllist">
+      <%
+      num=0;
+      for (let i = blogs.length-1; i >= 0; i--) { blog = blogs[i] %>
+          <% 
+          for (let j = 0; j < blog.categ.length; j++) {
+            if (element == blog.categ[j]){
+              num = num + 1;
+              if (num < 2 && num > startlimit ) { 
+              %>
+        <li id="eachind">
+          <a class="singlevid" href="/blogs/<%= blog._id %>">
+            <div class="container">
+              <img src="<%= blog.thumb %>" alt="Avatar" class="sThumbnail">
+              <div class="overlay">
+                <div class="text"><%= blog.name %></div>
+              </div>  
+            </div>
+          </a>
+        </li>
+        <% }}}} 
+        theloc = {"1":"chicken", "19":"beef", "3":"mutton", "2":"seafood", "7":"breakfast", "8":"pork", "9":"egg","10":"pizza","11":"monthi","12":"postnatal","13":"cakes","6":"drinks","14":"starter","15":"pickles","16":"rice","17":"evening", "18":"special"};
+        %>
+      </ol>
+      <a href="<%- theloc[element] %>"><h3 id="redir">view all > </h3></a>
+        <%}); %>        
   </div>
-  <%- include("./partials/previnext.ejs") %>
+  </div>
   <%- include("./partials/foot.ejs") %>
-
   <script>
     var startlimit = <%= startlimit %>;
     var endlimit = <%= endlimit %>;

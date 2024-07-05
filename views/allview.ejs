@@ -2,16 +2,15 @@
 <html lang="en">
 <%- include('./partials/header.ejs') %>
 <%- include('./partials/menu.ejs') %>
+<%- include('./partials/phonemenu.ejs') %>
 <body>
   
   <% num = 0 %>
   <div class="fullpage">
     <%- include("./partials/mainhead.ejs") %>
     <h1 style="text-transform: capitalize;display: flex; justify-content: center; padding-bottom: 20px; text-decoration: underline;"><%- name %> recipes</h1>
-
     <div class="content">
       <ol id="mainl">
-
             <% 
             console.log(webpage != "30");
             if ((webpage != "30") && (webpage != "31")){
@@ -35,14 +34,17 @@
         </li>
         <% }}}}}}%>
     </div>
-  </div>
+  
+  
   <%- include("./partials/previnext.ejs") %>
   <%- include("./partials/foot.ejs") %>
-
   <script>
     var startlimit = <%= startlimit %>;
     var endlimit = <%= endlimit %>;
+    const width = window.outerWidth;
+    console.log(width);
     function changeval(prevnext, type) {
+      if (width > 770) {
       if (prevnext == 1) {
         startlimit = Math.max(0, startlimit - 6);
         endlimit = Math.max(6, endlimit - 6);
@@ -61,10 +63,28 @@
 
           document.getElementById("offonforw").disabled = true
         }
+      }} else {
+        if (prevnext == 1) {
+        startlimit = Math.max(0, startlimit - 2);
+        endlimit = Math.max(2, endlimit - 2);
+      } else {
+        startlimit = startlimit + 2;
+        if (<%-numofelem%> > (endlimit)) {
+          endlimit = endlimit + 2;
+        } else {
+          if (<%-numofelem%> > 2) {
+          startlimit = <%= blogs.length %>-2;
+        } else {
+          startlimit = 0;
+        }
+          endlimit = <%= numofelem %>;
+
+          document.getElementById("offonforw").disabled = true
+        }
       }
       window.location.href = `/blogs/${type}?startlimit=${startlimit}&endlimit=${endlimit}#eachvid`;
-    }
+    }}
   </script>
-
+</div>
 </body>
 </html>

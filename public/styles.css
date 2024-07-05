@@ -78,6 +78,9 @@ body::-webkit-scrollbar-thumb {
 .content {
   margin-left: 20px;
 }
+.contentphone {
+  display: none;
+}
 .singlevid {
   padding: 0%;
 }
@@ -801,5 +804,8 @@ margin-top: 60px;
   padding-bottom: 0.5cm;
   text-transform: capitalize;
   text-decoration: underline;
+}
+.hideforpc {
+  display: none;
 }
 }

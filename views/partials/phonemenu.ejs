@@ -1,5 +1,5 @@
 
-<body>
+<div class="hideforpc">
     <nav>
       <div class="navbar">
         <div class="container nav-container">
@@ -13,11 +13,11 @@
             <li id="list"><a href="/">Home</a></li>
                 <li id="list"><a href="/About">About</a></li>
                 <li id="list"><a href="https://www.youtube.com/@merecipesaaataste" target=”_blank”>Channel</a></li>
-                <li id="list"><a href="/blogs/vegetable?startlimit=0&endlimit=6">Veg</a></li>
-                <li id="list"><a href="/blogs/nonveg?startlimit=0&endlimit=6" class="dropbtn">Non-Veg</a></li>
-                <li id="list"><a href="/blogs/sweets?startlimit=0&endlimit=6">Sweets/Bakery</a></li>
-                <li id="list"><a href="/blogs/AZrecipes?startlimit=0&endlimit=6" class="dropbtn">A-Z Recipes</a></li>
-                <li id="list"><a href="/blogs/all_videos?startlimit=0&endlimit=6">All Recipes</a></li>
+                <li id="list"><a href="/blogs/vegetable?startlimit=0&endlimit=2">Veg</a></li>
+                <li id="list"><a href="/blogs/nonveg?startlimit=0&endlimit=2" class="dropbtn">Non-Veg</a></li>
+                <li id="list"><a href="/blogs/sweets?startlimit=0&endlimit=2">Sweets/Bakery</a></li>
+                <li id="list"><a href="/blogs/AZrecipes?startlimit=0&endlimit=2" class="dropbtn">A-Z Recipes</a></li>
+                <li id="list"><a href="/blogs/all_videos?startlimit=0&endlimit=2">All Recipes</a></li>
           </div>
         </div>
       </div>
@@ -25,11 +25,12 @@
     <script>
       const checkbox = document.getElementById('toggleVisibility');
       checkbox.addEventListener('change', function() {
-          if (this.checked) {
-              document.body.style.overflow = 'hidden';
-          } else {
-              document.body.style.overflow = 'auto';
-          }
+        const fullpageDiv = document.querySelector('.fullpage');
+            if (this.checked) {
+                fullpageDiv.classList.add('hidden');
+            } else {
+                fullpageDiv.classList.remove('hidden');
+            }
       });
   </script>
-</body>
+</div>

@@ -85,7 +85,7 @@
     }
     /* content */
     .content {
-      margin-left: 20px;
+      margin-left: 16px;
     }
     .singlevid {
       padding: 0%;
@@ -98,7 +98,6 @@
     }
     #prev {
       text-align: right;
-      margin-right: 20px;
       margin-bottom: 40px;
       padding-right: 40%;
     }
@@ -214,6 +213,9 @@
       padding-bottom: 0.25cm;
       background-color: antiquewhite;
       fill-opacity: 50%;
+      margin-left: 20px;
+      margin-right: 20px;
+      margin-bottom: 11px;
     }
     .subscribe input {
       width: 60%;
@@ -257,11 +259,16 @@
     /* about page */
     #abouth1 {
       text-align: center;
-    }
+      font-size: 25px;
+      padding-top: 18px;
+  }
     #fullabout {
       text-align: center;
       font-family: "Dancing Script";
-      font-size: 0.75cm;
+      font-size: 0.5cm;
+      padding-left: 20px;
+      padding-right: 20px;
+      padding-bottom: 40px;
     }
 
     /* details page */
@@ -448,14 +455,10 @@
       margin: 0%;
     }
     #mainl {
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
       border-spacing: 2cm;
       margin-right: 20px;
       width: min-content;
       height: min-content;
-      
-      margin-left: 1.25cm;
     }
     .content h3 {
       text-align: left;
@@ -724,6 +727,7 @@
       background-color: white;
       border: none;
       font-size: larger;
+      padding-left: 40px;
     }
 
     #offonback:hover {
@@ -734,6 +738,8 @@
       background-color: white;
       border: none;
       font-size: larger;
+      padding-right: 24px;
+
     }
 
     #offonforw:hover {
@@ -796,8 +802,9 @@
       display: flex;
     }
     #eachind {
-      margin-bottom: 20px;
-      margin-right: 58px;
+      margin-bottom: 17px;
+      margin-right: 33px;
+      margin-left: 32px;
       border: 0.1cm solid black;
       border-radius: 24px;
     }
@@ -920,12 +927,6 @@ body.menu-active .main-menu-wrap {
 }
 /*  */
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
 #hideeverything {
   display: block;
 }
@@ -938,7 +939,7 @@ body {
 
 .container {
   max-width: 1050px;
-  width: 90%;
+  width: 100%;
   margin: auto;
 }
 
@@ -983,10 +984,10 @@ body {
 .nav-container .checkbox {
   position: absolute;
   display: block;
-  height: 32px;
-  width: 32px;
-  top: 26px;
-  left: 303px;
+  height: 40px;
+  width: 44px;
+  top: 19px;
+  left: 325px;
   z-index: 5;
   opacity: 0;
   cursor: pointer;
@@ -994,11 +995,11 @@ body {
 
 .nav-container .hamburger-lines {
   display: block;
-  height: 21px;
-  width: 26px;
+  height: 28px;
+  width: 35px;
   position: absolute;
   top: 30px;
-  left: 305px;
+  left: 321px;
   z-index: 2;
   display: flex;
   flex-direction: column;
@@ -1039,11 +1040,13 @@ body {
   padding-left: 8px;
   transition: transform 0.5s ease-in-out;
   text-align: center;
+  
 }
 
 .navbar .menu-items li {
   font-size: 1.5rem;
   font-weight: 500;
+  
 }
 
 .logo {
@@ -1071,6 +1074,12 @@ body {
 }
 
 .nav-container input[type="checkbox"]:checked ~ .logo{
+  display: none;
+}
+.checkbox:checked ~ .fullpage {
+  display: none;
+}
+.hidden {
   display: none;
 }
   /*  */
