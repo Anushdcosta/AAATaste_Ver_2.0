@@ -800,11 +800,14 @@
     #fulllist {
       width: max-content;
       display: flex;
+      flex-direction: column;
+
     }
     #eachind {
       margin-bottom: 17px;
       margin-right: 33px;
-      margin-left: 32px;
+      margin-left: 20px;
+
       border: 0.1cm solid black;
       border-radius: 24px;
     }
@@ -817,11 +820,12 @@
 
     #recipeheader {
       padding-top: 1cm;
-      padding-left: 1cm;
+      /* padding-left: 1cm; */
       padding-bottom: 0.5cm;
       text-transform: capitalize;
       text-decoration: underline;
-    }
+      text-align: center;
+  }
   
 /* Style the navigation menu */
 .topnav {
@@ -1081,6 +1085,9 @@ body {
 }
 .hidden {
   display: none;
+}
+#copyright {
+  text-align: center;
 }
   /*  */
 }

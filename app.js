@@ -38,6 +38,7 @@ app.get("/about", (req, res) => {
 });
 
 app.get("/15012006", (req, res) => {
+  console.log(window.innerWidth);
   res.render("games");
 });
 app.get("/testpage", (req, res) => {

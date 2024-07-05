@@ -1,6 +1,5 @@
 const express = require("express");
 const Blog = require("../models/bloger");
-
 const router = express.Router();
 router.use(express.urlencoded({ extended: true }));
 router.use(express.json()); // Ensure you can parse JSON bodies if needed
@@ -281,7 +280,6 @@ router.get('/monthi?', (req, res) => {
         });
       });
       res.render("allview", {numofelem: numofelem, name: "monthi", blogs: result, webpage: "11" , startlimit: startlimit, endlimit: endlimit});
-
     })
     .catch((err) => {
       console.error(err);
@@ -470,19 +468,14 @@ router.get('/beef?', (req, res) => {
       console.error(err);
     });
 });
+
 router.get('/nonveg?', (req, res) => {
   const startlimit = req.query["startlimit"] || 0; // price_descending
   const endlimit = req.query["endlimit"] || 7;
-  numofelem = 0;
-  const targetCategories = ["1", "2", "3", "8", "19"];
+  const targetCategories = ["1", "2", "3", "8", "9", "19"];
   Blog.find()
     .then((result) => {
-      result.forEach(blog => {
-        if (blog.categ.some(category => targetCategories.includes(category))) {
-          numofelem = numofelem + 1;
-        }
-      });
-    res.render("viewer", {targetcat: targetCategories,numofelem: numofelem, name: "nonveg", blogs: result, webpage: "30" , startlimit: startlimit, endlimit: endlimit});
+    res.render("viewer", {numofelem:2,targetcat: targetCategories, name: "nonveg", blogs: result, webpage: "30" , startlimit: startlimit, endlimit: endlimit});
 
     })
     .catch((err) => {
@@ -493,15 +486,11 @@ router.get('/AZrecipes?', (req, res) => {
   const startlimit = req.query["startlimit"] || 0; // price_descending
   const endlimit = req.query["endlimit"] || 7;
   numofelem = 0;
+  
   const targetCategories = ["6", "7","9","10","11","12","13","14","15","16","17", "18"];
   Blog.find()
     .then((result) => {
-      result.forEach(blog => {
-        if (blog.categ.some(category => targetCategories.includes(category))) {
-          numofelem = numofelem + 1;
-        }
-      });
-    res.render("viewer", {targetcat: targetCategories, numofelem: numofelem, name: "A-Z", blogs: result, webpage: "31" , startlimit: startlimit, endlimit: endlimit});
+    res.render("viewer", {targetcat: targetCategories, name: "A-Z", blogs: result, webpage: "31" , startlimit: startlimit, endlimit: endlimit});
 
     })
     .catch((err) => {

@@ -5,8 +5,7 @@
 <%- include('./partials/menu.ejs') %>
 
 
-<body>
-  
+<body>  
   <% num = 0 %>
   <div class="fullpage">
     <%- include("./partials/mainhead.ejs") %>
@@ -38,73 +37,14 @@
             </a>
           </li>
           <% }}}} 
-          theloc = {"1":"chicken", "19":"beef", "3":"mutton", "2":"seafood", "7":"breakfast", "8":"pork", "9":"egg","10":"pizza","11":"monthi","12":"postnatal","13":"cakes","6":"drinks","14":"starter","15":"pickles","16":"rice","17":"evening", "18":"special"};
+          theloc = {"1":"/blogs/chicken", "19":" /blogs/beef", "3":"/blogs/mutton", "2":"/blogs/seafood", "7":"/blogs/breakfast", "8":"/blogs/pork", "9":"/blogs/egg","10":"/blogs/pizza","11":"/blogs/monthi","12":"/blogs/postnatal","13":"/blogs/cakes","6":"/blogs/drinks","14":"/blogs/starter","15":"/blogs/pickles","16":"/blogs/rice","17":"/blogs/evening", "18":"/blogs/special"};
           %>
         </ol>
         <a href="<%- theloc[element] %>"><h3 id="redir">view all > </h3></a>
           <%}); %>        
     </div>
-    <div class="contentphone">
-      <% 
-      lisnames = {"1":"chicken", "19":"beef", "3":"mutton", "2":"seafood", "7":"breakfast", "8":"pork", "9":"egg","10":"pizza","11":"monthi","12":"postnatal","13":"cakes","6":"drinks","14":"starter","15":"pickles","16":"rice","17":"evening", "18":"special"};
-      targetcat.forEach(element => { 
-      %>
-      <h1 id="recipeheader"><%-lisnames[element]%> Recipes <br></h1>
-      <ol id="fulllist">
-      <%
-      num=0;
-      for (let i = blogs.length-1; i >= 0; i--) { blog = blogs[i] %>
-          <% 
-          for (let j = 0; j < blog.categ.length; j++) {
-            if (element == blog.categ[j]){
-              num = num + 1;
-              if (num < 2 && num > startlimit ) { 
-              %>
-        <li id="eachind">
-          <a class="singlevid" href="/blogs/<%= blog._id %>">
-            <div class="container">
-              <img src="<%= blog.thumb %>" alt="Avatar" class="sThumbnail">
-              <div class="overlay">
-                <div class="text"><%= blog.name %></div>
-              </div>  
-            </div>
-          </a>
-        </li>
-        <% }}}} 
-        theloc = {"1":"chicken", "19":"beef", "3":"mutton", "2":"seafood", "7":"breakfast", "8":"pork", "9":"egg","10":"pizza","11":"monthi","12":"postnatal","13":"cakes","6":"drinks","14":"starter","15":"pickles","16":"rice","17":"evening", "18":"special"};
-        %>
-      </ol>
-      <a href="<%- theloc[element] %>"><h3 id="redir">view all > </h3></a>
-        <%}); %>        
-  </div>
   </div>
   <%- include("./partials/foot.ejs") %>
-  <script>
-    var startlimit = <%= startlimit %>;
-    var endlimit = <%= endlimit %>;
-    function changeval(prevnext, type) {
-      if (prevnext == 1) {
-        startlimit = Math.max(0, startlimit - 6);
-        endlimit = Math.max(6, endlimit - 6);
-      } else {
-        console.log(numofelem)
-        startlimit = startlimit + 6;
-        if (<%-numofelem%> > (endlimit)) {
-          endlimit = endlimit + 6;
-        } else {
-          if (<%-numofelem%> > 6) {
-          startlimit = <%= blogs.length %>-6;
-        } else {
-          startlimit = 0;
-        }
-          endlimit = <%= numofelem %>;
-
-          document.getElementById("offonforw").disabled = true
-        }
-      }
-      window.location.href = `/blogs/${type}?startlimit=${startlimit}&endlimit=${endlimit}#eachvid`;
-    }
-  </script>
 
 </body>
 </html>
