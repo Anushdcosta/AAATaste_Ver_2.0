@@ -210,21 +210,23 @@
       margin-top: 2%;
       border: 1mm solid black;
       padding: 0.75cm;
+      padding-top: 0;
       padding-bottom: 0.25cm;
       background-color: antiquewhite;
       fill-opacity: 50%;
       margin-left: 20px;
       margin-right: 20px;
       margin-bottom: 11px;
-    }
-    .subscribe input {
-      width: 60%;
-      height: 30px;
-      margin: 0 auto;
-      border: auto;
-      border-radius: 10px;
-      font-size: large;
-    }
+  }
+  .subscribe input {
+    width: 90%;
+    height: 30px;
+    margin: 0 auto;
+    border: auto;
+    border-radius: 10px;
+    font-size: 26px;
+    padding: 0.2cm;
+}
     .subscribe ul {
       list-style: none;
     }
@@ -233,12 +235,13 @@
       text-align: center;
     }
     .subscribe button {
-      font-size: 0.75cm;
+      font-size: 41px;
       border-radius: 15px;
       width: 5cm;
       color: white;
+      padding: 5px;
       background: #000000;
-    }
+  }
     .sidebyside {
       grid-gap: 10px;
     }
@@ -252,9 +255,9 @@
       scale: 2px;
     }
     #info {
-      padding-top: 1.5cm;
-      align-items: center ;
-    }
+      padding-top: 1cm;
+      align-items: center;
+    } 
 
     /* about page */
     #abouth1 {
@@ -274,9 +277,12 @@
     /* details page */
     #title {
       text-transform: capitalize;
-      font-size: 1cm;
+      font-size: 21px;
+      padding-right: 15px;
+      padding-bottom: 13px;
       border-bottom: 0.1em solid black;
-    }
+      padding-left: 15px;
+  }
     #subtitle {
       font-size: x-large;
       margin: 0%;
@@ -290,11 +296,13 @@
     #mainpicture {
       text-align: center;
       width: 90%;
-      margin-top: 1%;
-      padding-top: 1%;
-      margin-right: 1cm;
+      /* margin-top: 1%; */
+      padding-top: 15px;
+      /* margin-right: 1cm; */
       padding-right: 1cm;
-    }
+      padding-left: 18px;
+      margin-bottom: 15px;
+  }
     .recipe {
       height: auto;
       font-size: 100%;
@@ -304,19 +312,18 @@
     .mainbody {
       width: 96%;
       height: 110%;
-      padding-bottom: 1.5cm;
+      margin-left: 6px;
       border: 0.1em solid black;
       height: fit-content;
     }
     .subsections {
-      display: grid;
-      grid-template-columns: 1.25fr 0.75fr;
       width: 100%;
     }
     .subbody {
       text-align: center;
       height: max-content;
       list-style-type: none;
+      display: none;
     }
     .innersubelem {
       display: grid;
@@ -339,20 +346,21 @@
       scale: 0.8;
     }
     #yout_video {
-      width: 15cm;
-      height: 9cm;
-      margin: 1cm;
-      margin-left: 1.8cm;
-      margin-bottom: 0cm;
-    }
+      width: 82mm;
+      height: 48mm;
+      margin: 12px;
+      /* margin-left: 1.8cm; */
+      /* margin-bottom: 0cm; */
+  }
+  div#sub {
+    text-align: end;
+}
 
     /* need to clean */
 
     .side {
       list-style-type: none;
-      display: grid;
-      grid-template-columns: 0.65fr 0.35fr;
-    }
+  }
 
     #uptodate { 
       border-radius: 20px; 
@@ -369,7 +377,9 @@
     .allupto {
       border: #000000 solid;
       border-radius: 20px;
-    }
+      margin: 8px;
+      padding: 9px;
+  }
     #uptodate ul {
       display: grid;
       display: inline-flex;
@@ -390,24 +400,21 @@
     }
 
     #inst {
-      font-size: 20;
-      background-image: linear-gradient(
-        200deg,
-        purple,
-        rgb(255, 0, 123),
-        red,
-        yellow
-      );
-      padding: 0.2cm;
+      font-size: 26px;
+      background-image: linear-gradient(200deg, purple, rgb(255, 0, 123), red, yellow);
+      padding: 19px;
+      padding-right: 8px;
+      padding-left: 7px;
+      /* margin-bottom: 4px; */
       border-radius: 30px;
       color: #ffffff;
-    }
+  }
     .headerfile 
     .headerfile img {
       border: 0;
     }
     #face {
-      
+      display: none;
       font-size: 20;
       padding: 0.2cm;
       border-radius: 15px;
@@ -533,20 +540,21 @@
     }
     #email {
       display: flex;
-      margin-left: 1cm;
+      /* margin-left: 1cm; */
       font-size: 0.75cm;
       border-radius: 10px;
       margin-bottom: 0.5cm;
-    }
+      margin-top: 10px;
+  }
     #commentsubmit {
-      text-align: end;
+      /* text-align: end; */
       font-size: 0.65cm;
       border: 0cm;
       background-color: transparent;
       font-weight: bolder;
-      margin-left: 15.5cm;
+      /* margin-left: 15.5cm; */
       margin-top: 0.5cm;
-    }
+  }
     #commentsubmit:hover {
       text-decoration: underline;
       color: #575353;
@@ -714,7 +722,8 @@
     /* contact */
     #contact_title {
       align-items: center;
-    }
+      text-align: center;
+  }
 
     .linkdirect {
       margin: unset;
@@ -1002,8 +1011,8 @@ body {
   height: 28px;
   width: 35px;
   position: absolute;
-  top: 30px;
-  left: 321px;
+  top: 27px;
+  left: 332px;
   z-index: 2;
   display: flex;
   flex-direction: column;
@@ -1035,6 +1044,7 @@ body {
 .navbar .menu-items {
   padding-top: 46px;
   background-color: #fff;
+  opacity: 0.9;
   height: 102vh;
   width: 118%;
   transform: translate(-150%);
@@ -1044,7 +1054,6 @@ body {
   padding-left: 8px;
   transition: transform 0.5s ease-in-out;
   text-align: center;
-  
 }
 
 .navbar .menu-items li {
@@ -1062,7 +1071,7 @@ body {
 }
 
 .nav-container input[type="checkbox"]:checked ~ .menu-items {
-  transform: translateX(0);
+  transform: translateX(-0);
 }
 
 .nav-container input[type="checkbox"]:checked ~ .hamburger-lines .line1 {
@@ -1090,4 +1099,7 @@ body {
   text-align: center;
 }
   /*  */
+  div#ad {
+    display: none;
+}
 }
