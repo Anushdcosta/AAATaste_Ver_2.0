@@ -1080,12 +1080,12 @@ body {
 .nav-container input[type="checkbox"]:checked ~ .logo{
   display: none;
 }
-.checkbox:checked ~ .fullpage {
+/* .checkbox:checked ~ .fullpage {
   display: none;
 }
 .hidden {
   display: none;
-}
+} */
 #copyright {
   text-align: center;
 }
