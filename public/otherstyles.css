@@ -1102,4 +1102,9 @@ body {
   div#ad {
     display: none;
 }
+#home{
+    padding-top: 5px;
+    padding-left: 15px;
+    font-size: 43px;
+}
 }
