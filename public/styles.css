@@ -34,7 +34,9 @@ body::-webkit-scrollbar-thumb {
 }
 /* Video Details */
 .title {
-  font-size: x-large;
+  font-size: 18px;
+  font-weight: lighter;
+  margin: 16px;
 }
 .Thumbnail {
   width: 21em;
@@ -216,7 +218,7 @@ footer {
   height: 30px;
   margin: 0 auto;
   border: auto;
-  border-radius: 10px;
+  border-radius: 3px;
   font-size: large;
 }
 .subscribe ul {
@@ -229,7 +231,6 @@ footer {
 }
 .subscribe button {
   font-size: 0.75cm;
-  border-radius: 15px;
   width: 5cm;
   color: white;
   background: #000000;
@@ -258,25 +259,23 @@ footer {
   text-align: center;
 }
 #fullabout {
-  text-align: center;
-  font-family: "Dancing Script";
-  font-size: 0.75cm;
+  font-weight: lighter;
+  font-size: 18px;
 }
-
 /* details page */
 #title {
   text-transform: capitalize;
-  font-size: 1cm;
-  border-bottom: 0.1em solid black;
+  font-size: 26px;
+  font-weight: lighter;
 }
 #subtitle {
-  font-size: x-large;
   margin: 0%;
   width: 50%;
-  text-align: center;
-  padding-left: 20%;
+  padding-left: 6%;
   font-family: "lobster";
-  font-size: 1cm;
+  font-size: 19px;
+  padding-top: 7px;
+  padding-bottom: 2px;
   text-decoration: underline;
 }
 #mainpicture {
@@ -507,11 +506,14 @@ footer {
   margin-top: 1cm;
 }
 #comment h2 {
-  font-family: "lobster";
-  text-decoration: underline;
+  /* font-family: "lobster"; */
+  /* text-decoration: underline; */
   padding-top: 0.5cm;
-  text-align: center;
-  font-size: 1cm;
+  padding-bottom: 13px;
+  padding-left: 40px;
+  /* text-align: center; */
+  font-size: 17px;
+  font-weight: lighter;
 }
 #comments {
   display: flex;
@@ -524,12 +526,15 @@ footer {
   border-radius: 10px;
   padding: 0.5cm;
 }
-#email {
-  display: flex;
-  margin-left: 1cm;
-  font-size: 0.75cm;
-  border-radius: 10px;
-  margin-bottom: 0.5cm;
+#comment h2 {
+  /* font-family: "lobster"; */
+  /* text-decoration: underline; */
+  padding-top: 0.5cm;
+  padding-bottom: 13px;
+  padding-left: 40px;
+  /* text-align: center; */
+  font-size: 17px;
+  font-weight: lighter;
 }
 #commentsubmit {
   text-align: end;
@@ -807,5 +812,23 @@ margin-top: 60px;
 }
 .hideforpc {
   display: none;
+}
+.scorecard {
+  display: block;
+  padding: 16px;
+  margin-left: 24px;
+}
+.stars {
+  cursor: pointer;
+}
+
+.star {
+  font-size: 2rem;
+  color: #ddd;
+}
+
+.star:hover,
+.star.selected {
+  color: gold;
 }
 }

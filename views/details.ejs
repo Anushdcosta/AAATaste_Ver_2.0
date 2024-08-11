@@ -97,13 +97,24 @@
         <div id="comment">
           <!-- Adding a comments section -->
           <h2>Comments</h2>
-          <form action="/blogs/<%= blog._id %>" method="post">
-            <input type="email" placeholder="Email id" name="email" id="email" required>
-            <textarea type="" name="comments" id="comments" required></textarea>
+          <form action="/blogs/<%= blog._id %>/rate" method="post">
+            <input type="email" placeholder="Email Address" name="email" id="email" required>
+            <div class="scorecard">
+              <div class="stars">
+                <% for (let i = 1; i <= 5; i++) { %>
+                  <span class="star" data-value="<%= i %>">&#9733;</span>
+                <% } %>
+              </div>
+              <div class="rating-value">Rating: <span id="rating">0</span>/5</div>
+            </div>
+            <input type="hidden" name="rating" id="ratingInput" value="0">
+            <textarea name="comments" id="comments" required></textarea>
             <div id="sub">
               <button id="commentsubmit">Submit</button>
             </div>
           </form>
+          
+          
         </div>
       </div>
     </div>
@@ -150,7 +161,25 @@
   </div>
 </div>
   <%- include("./partials/foot.ejs") %>
-
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const stars = document.querySelectorAll('.star');
+      const ratingValue = document.getElementById('rating');
+      const ratingInput = document.getElementById('ratingInput');
+  
+      stars.forEach(star => {
+        star.addEventListener('click', () => {
+          const value = star.getAttribute('data-value');
+          ratingValue.textContent = value;
+          ratingInput.value = value;
+          stars.forEach(s => s.classList.remove('selected'));
+          for (let i = 0; i < value; i++) {
+            stars[i].classList.add('selected');
+          }
+        });
+      });
+    });
+  </script>
 </body>
 
 </html>

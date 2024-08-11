@@ -497,6 +497,25 @@ router.get('/AZrecipes?', (req, res) => {
       console.error(err);
     });
 });
+
+// const blogSchema = new mongoose.Schema({
+//   name: String,
+//   thumb: String,
+//   link: String,
+//   Ingredients: String,
+//   recipe: String,
+//   comments: [
+//     {
+//       email: String,
+//       rating: Number,
+//       comment: String
+//     }
+//   ]
+// });
+
+// const Blog = mongoose.model('Blog', blogSchema);
+
+
 // This page loads an individual page for any of the recipes clicked based on the id
 router.get("/:id", (req, res) => {
   const id = req.params.id;

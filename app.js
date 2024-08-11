@@ -9,7 +9,7 @@ const app = express();
 
 const port = 3000;
 const dburi =
-  "mongodb+srv://anush:Thephoenix1230984576@cluster0.pqnqxux.mongodb.net/nodetuts?retryWrites=true&w=majority&appName=Cluster0";
+  "mongodb+srv://anush:anush123@cluster0.pqnqxux.mongodb.net/nodetuts?retryWrites=true&w=majority&appName=Cluster0";
 mongoose
   .connect(dburi)
   .then((results) =>
