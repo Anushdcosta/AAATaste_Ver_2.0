@@ -1,15 +1,58 @@
 <div class="aboutnav">
   <!-- banner just below the logo displaying a banner and a small description of the page -->
+  <%
+  function generateUniqueRandoms(min, max, count) {
+    let nums = new Set();
+    while(nums.size < count) {
+        let num = Math.floor(Math.random() * (max - min + 1)) + min;
+        if(!(num in nums)) {
+            nums.add(num);
+        }
+    }
+    return Array.from(nums);
+}
+%>
+<%
+  function ellipsify (str, num) {
+     if (str.length > num) {
+        return (str.substring(0, num) + "...");
+    }
+    else {
+        return str;
+    }
+} %>
+<ul class="headerfile">
+  <% var random = generateUniqueRandoms(0, blogs.length-1, 3); %>
+  <% for (let i = 0; i < random.length; i++) {
+      let indice = random[i];
+      let sampleblog = blogs[String(indice)];
+  %>
+  <a class="linkdirect" href="/blogs/<%= sampleblog._id %>">
+      <li>
+          <div class="main_container">
+              <img class="mThumbnail" src="<%= sampleblog.thumb %>" alt="hello" />
+              <div class="overlay-text"><%= sampleblog.name %></div> <!-- Fix the closing tag here -->
+          </div>
+      </li>
+  </a>
+  <% } %>
+</ul>
+
   <ul class="headerfile">
     <li>
-      <img src="/bigpicture.jpg" alt="the_main_picture" />
+      
     </li>
-    <li id="hideforphone">
-      <p class="whoiam">
-        A variety of recipes, Snacks, Vegetarian, Non-Vegetarian, and many other
-        Easy to Cook, Homemade, and tasty recipes with step-by-step detailed
-        easy methods/instructions on how to cook family meals.
-      </p>
+    <li>
+      
+    </li>
+    <li>
+      
+    </li>
+    <li>
+      
+    </li>
+    <li>
+      
     </li>
   </ul>
 </div>

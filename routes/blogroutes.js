@@ -12,7 +12,6 @@ router.get("/", (req, res) => {
       res.render("index", {blogs: result, webpage: 0  });
     })
     .catch((err) => {
-    
     });
 });
 
