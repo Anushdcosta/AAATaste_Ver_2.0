@@ -49,13 +49,14 @@
         startlimit = Math.max(0, startlimit - 6);
         endlimit = Math.max(6, endlimit - 6);
       } else {
-        console.log(numofelem)
         startlimit = startlimit + 6;
-        if (<%-numofelem%> > (endlimit)) {
+        
+        if (<%-numofelem%> > endlimit+6) {
           endlimit = endlimit + 6;
+          console.log(endlimit)
         } else {
           if (<%-numofelem%> > 6) {
-          startlimit = <%= blogs.length %>-6;
+          startlimit = <%= numofelem %>-6;
         } else {
           startlimit = 0;
         }
@@ -81,9 +82,11 @@
 
           document.getElementById("offonforw").disabled = true
         }
-      }
-      window.location.href = `/blogs/${type}?startlimit=${startlimit}&endlimit=${endlimit}#eachvid`;
-    }}
+      }      
+    }
+    console.log(startlimit, endlimit)
+    window.location.href = `/blogs/${type}?startlimit=${startlimit}&endlimit=${endlimit}#eachvid`;
+    }
   </script>
 </div>
 </body>
