@@ -8,7 +8,45 @@
   <% num = 0 %>
   <div class="fullpage">
     <%- include("./partials/mainhead.ejs") %>
-    <h1 style="text-transform: capitalize;display: flex; justify-content: center; padding-bottom: 20px; text-decoration: underline;"><%- name %> recipes</h1>
+    <div class="headandmag">
+      <h1 style="text-transform: capitalize;display: flex; justify-content: center; padding-bottom: 20px; text-decoration: underline;"><%- name %> recipes</h1>
+      <a onclick="document.querySelector('dialog').showModal()" style="cursor: pointer;"><i class="fa-solid fa-magnifying-glass"></i></a>
+    </div>
+    <dialog class="dialog">
+      <a class="close" onclick="document.querySelector('dialog').close()" style="cursor: pointer; border: none; background-color: transparent; font-size: 35px;">×</a>
+      <h1>Search Recipes</h1>
+      <input style="font-size: 25px; width: 22cm;" type="input" id="search" list="options" placeholder="Search for recipes.." title="Type in a name">
+      <datalist id="options">
+        <% for (let i = 0; i < blogs.length; i++) { %>
+        <option id="select" value="<%= blogs[i].name %>"></option>
+        <% } %>
+        <!-- when the user clicks enter it should search -->
+      </datalist>
+      <script>
+        document.getElementById('search').addEventListener('keyup', function(event) {
+          console.log("clicked")
+          if (event.key === 'Enter') {
+            submitinput();
+          }
+        });
+        function submitinput() {
+          // Dvar input, filter, ul, li, a, i, txtValue;
+          var blogName;
+          input = document.getElementById('search');
+          filter = input.value.toUpperCase();
+          console.log(filter);
+          <% blogs.forEach(element => { %>
+            blogName = '<%= element.name %>';
+            blogName = blogName.toUpperCase();
+            if (blogName.includes(filter)) {
+              filteredBlogs.push(<%- JSON.stringify(element) %>);
+            }
+          <% }); %>
+
+          console.log(filteredBlogs);
+        }
+      </script>
+    </dialog>
     <div class="content">
       <ol id="mainl">
             <% 
